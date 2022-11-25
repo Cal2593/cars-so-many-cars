@@ -1,21 +1,24 @@
+import { Car } from "./CarClass";
+import { clientCar } from ".";
+
 export class ParkingSpot {
   ID: string;
   reservationStatus: boolean;
   occupiedStatus: boolean;
-  car: string;
+  car: Car;
   electricCharging: boolean;
 
   constructor(
     id: string,
     resStat: boolean,
     occStat: boolean,
-    car: string,
+    car: Car,
     elecChar: boolean
   ) {
     this.ID = id;
     this.reservationStatus = resStat;
     this.occupiedStatus = occStat;
-    this.car = car;
+    this.car = clientCar;
     this.electricCharging = elecChar;
   }
 

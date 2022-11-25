@@ -1,6 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.clientCar = void 0;
 const ParkingSpotClass_1 = require("./ParkingSpotClass");
-console.log('hello world!');
-const pSpot1 = new ParkingSpotClass_1.ParkingSpot("b1", true, false, "renault", true);
-console.log(pSpot1);
+const CarClass_1 = require("./CarClass");
+const app_1 = require("./app");
+exports.clientCar = new CarClass_1.Car("Renault", "F6", "WV60 SXX", "Callum Davidson");
+const pSpot = new ParkingSpotClass_1.ParkingSpot("b1", true, true, exports.clientCar, true);
+const status = (0, app_1.isOccupied)(pSpot);
+const owner = (0, app_1.carInSpot)(pSpot);
+console.log("Space " + pSpot.ID + " is currently " + status + " by " + owner + "'s car");
