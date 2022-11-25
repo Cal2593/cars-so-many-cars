@@ -18,3 +18,46 @@ Shit I'm using
     - singleQuote - set to true means that Prettier will prefer single quotes instead of double quotes unless the number of double-quotes outweighs
       the number of single quotes
     - printWidth - set to 80 specifies that the printer will wrap any lines that exceed 80 characters
+
+const RenaultTraficPassenger: [string, boolean, number, number , number] = [ //model,electric,height,weight,length
+"Trafic Passenger",
+false,
+1973,
+1956,
+5080
+];
+const RenaultMeganeETech: [string, boolean, number, number, number] = [
+"Megane E-Tech",
+true,
+1505,
+1860,
+4199
+];
+const RenaultZoeETech: [string, boolean, number, number, number] = [
+"Zoe E-Tech",
+true,
+1562,
+1787,
+4087
+];
+const RenaultClio: [string, boolean, number, number, number] = [
+"Clio",
+true,
+1440,
+1798,
+4050
+];
+const RenaultCaptur: [string, boolean, number, number, number] = [
+"Captur",
+true,
+1576,
+2003,
+4227
+];
+const RenaultArkana: [string, boolean, number, number, number] = [
+"Arkana",
+true,
+1576,
+2034,
+4568
+];

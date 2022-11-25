@@ -1,5 +1,5 @@
-import { vehicle } from './vehicleClass';
-import { clientVeh } from '.';
+import { vehicle } from './vehicleInterface';
+import { clientVeh } from '..';
 
 export class ParkingSpot {
   private _ID: string;
@@ -10,6 +10,9 @@ export class ParkingSpot {
   //covered spot?
   //which car park?
   //vehicle spot type
+    //-Disability accessible
+    //-Extra wide
+    //-Standard
 
   constructor(
     id: string,

@@ -1,16 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ParkingSpot = void 0;
-const _1 = require(".");
+const __1 = require("..");
 class ParkingSpot {
     //covered spot?
     //which car park?
     //vehicle spot type
+    //-Disability accessible
+    //-Extra wide
+    //-Standard
     constructor(id, resStat, occStat, car, elecChar) {
         this._ID = id;
         this._reservationStatus = resStat;
         this._occupiedStatus = occStat;
-        this._car = _1.clientVeh;
+        this._car = __1.clientVeh;
         this._electricCharging = elecChar;
     }
     get ID() {

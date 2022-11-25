@@ -6,7 +6,7 @@ function createOccupying(occupy) {
     const occupyingCar = new Array(30);
     for (let i = 0; i <= 29; i++) {
         if (occupy[i] == true) {
-            let a = Math.floor(Math.random() * 12);
+            const a = Math.floor(Math.random() * 12);
             occupyingCar[i] = vehMap_1.vehMap.get(a);
         }
     }
