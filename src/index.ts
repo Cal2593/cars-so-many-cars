@@ -1,11 +1,17 @@
 import {ParkingSpot} from './ParkingSpotClass';
 import { Car } from './CarClass';
-import { carInSpot, isOccupied } from './app';
+import { carInSpot } from './app';
+import { CreateArrays } from './arrays';
 
-export const clientCar = new Car("Renault","F6","WV60 SXX","Callum Davidson");
+CreateArrays();
+console.log(CreateArrays())
+export const clientCar = new Car("Renault","F6","WV60 SXX","Callum Davidson",true);
 const pSpot = new ParkingSpot("b1",true,true,clientCar,true);
 
-const status = isOccupied(pSpot);
-const owner = carInSpot(pSpot);
+const [own, make] = carInSpot(pSpot);
 
-console.log("Space "+ pSpot.ID +" is currently "+status+" by "+ owner +"'s car");
+if(pSpot.occupiedStatus==true){
+    console.log("Space "+ pSpot.ID +" is currently occupied by "+ own +"'s "+ make);
+}else{
+    console.log("Space "+ pSpot.ID +" is currently vacant");
+}

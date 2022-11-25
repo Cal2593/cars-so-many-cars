@@ -1,22 +1,12 @@
-import { Car } from "./CarClass";
+//import { Car } from "./CarClass";
 import { clientCar } from ".";
-export function isOccupied(pSpot: { occupiedStatus: boolean; }){
-
-let status = "";
-
-    if(pSpot.occupiedStatus == true){
-        status = "occupied";
-    }else{
-        status = "vacant";
-    }
-
-return status;
-}
 
 export function carInSpot(pSpot: {occupiedStatus: boolean;}){
     let own;
+    let make;
     if(pSpot.occupiedStatus == true){
         own = clientCar.owner
+        make = clientCar.make
     }
-return own;
+return [own, make] as const;
 }

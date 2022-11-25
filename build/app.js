@@ -1,23 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.carInSpot = exports.isOccupied = void 0;
+exports.carInSpot = void 0;
+//import { Car } from "./CarClass";
 const _1 = require(".");
-function isOccupied(pSpot) {
-    let status = "";
-    if (pSpot.occupiedStatus == true) {
-        status = "occupied";
-    }
-    else {
-        status = "vacant";
-    }
-    return status;
-}
-exports.isOccupied = isOccupied;
 function carInSpot(pSpot) {
     let own;
+    let make;
     if (pSpot.occupiedStatus == true) {
         own = _1.clientCar.owner;
+        make = _1.clientCar.make;
     }
-    return own;
+    return [own, make];
 }
 exports.carInSpot = carInSpot;
