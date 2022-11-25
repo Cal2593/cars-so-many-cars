@@ -2,11 +2,16 @@ import {ParkingSpot} from './ParkingSpotClass';
 import { Car } from './CarClass';
 import { carInSpot } from './app';
 import { CreateArrays } from './arrays';
+import { findSpotInfo } from './findSpotInfo';
 
-CreateArrays();
-console.log(CreateArrays())
-export const clientCar = new Car("Renault","F6","WV60 SXX","Callum Davidson",true);
-const pSpot = new ParkingSpot("b1",true,true,clientCar,true);
+const [spots, reserve, occupy, occupyingCar, owns] = CreateArrays();
+
+const specSpot = "A9";
+
+const [resStatus,occStatus,occCar,owner] = findSpotInfo(specSpot,spots,reserve,occupy,occupyingCar,owns)
+
+export const clientCar = new Car(occCar,"F6","WV60 SXX",owner,true);
+const pSpot = new ParkingSpot(specSpot,resStatus,occStatus,clientCar,true);
 
 const [own, make] = carInSpot(pSpot);
 

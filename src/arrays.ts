@@ -1,4 +1,3 @@
-import { UserMap } from "./Maps/userMap";
 import { createSpots } from "./Arrays/createSpots";
 import { createReserved } from "./Arrays/createReserved";
 import { createOccupied } from "./Arrays/createOccupied";
