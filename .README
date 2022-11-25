@@ -2,3 +2,19 @@ npm run start:dev - will start the app using ts-node ./src/index.ts, watching fo
 npx tsc - will compile the code
 npm run build - rimraf will remove the old build folder before the Typescript compiler emits new code to dist
 npm start - start up the app and execute code from the build version of index.js
+https://khalilstemmler.com/blogs/typescript/node-starter-project/
+npm run lint - checks code
+npm run prettier-format - formats everything
+npm run lint-and-fix - checks code and fixes if it's able to
+
+Shit I'm using
+
+- ESLint
+- Node.js
+- Prettier
+  - in the prettier json - https://prettier.io/docs/en/options.html
+    - semi - set to true means that prettier will add semicolons when necessary
+    - trailingComma - set to none means that prettier will remove any trailing commas at the end of objects
+    - singleQuote - set to true means that Prettier will prefer single quotes instead of double quotes unless the number of double-quotes outweighs
+      the number of single quotes
+    - printWidth - set to 80 specifies that the printer will wrap any lines that exceed 80 characters
