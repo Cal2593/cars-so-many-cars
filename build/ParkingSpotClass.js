@@ -3,15 +3,45 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ParkingSpot = void 0;
 const _1 = require(".");
 class ParkingSpot {
+    //covered spot?
+    //which car park?
+    //vehicle spot type
     constructor(id, resStat, occStat, car, elecChar) {
-        this.ID = id;
-        this.reservationStatus = resStat;
-        this.occupiedStatus = occStat;
-        this.car = _1.clientCar;
-        this.electricCharging = elecChar;
+        this._ID = id;
+        this._reservationStatus = resStat;
+        this._occupiedStatus = occStat;
+        this._car = _1.clientVeh;
+        this._electricCharging = elecChar;
     }
-    disp() {
-        console.log('function displays this spot is: ' + this.ID);
+    get ID() {
+        return this._ID;
+    }
+    set ID(value) {
+        this._ID = value;
+    }
+    get reservationStatus() {
+        return this._reservationStatus;
+    }
+    set reservationStatus(value) {
+        this._reservationStatus = value;
+    }
+    get occupiedStatus() {
+        return this._occupiedStatus;
+    }
+    set occupiedStatus(value) {
+        this._occupiedStatus = value;
+    }
+    get car() {
+        return this._car;
+    }
+    set car(value) {
+        this._car = value;
+    }
+    get electricCharging() {
+        return this._electricCharging;
+    }
+    set electricCharging(value) {
+        this._electricCharging = value;
     }
 }
 exports.ParkingSpot = ParkingSpot;

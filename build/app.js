@@ -7,8 +7,8 @@ function carInSpot(pSpot) {
     let own;
     let make;
     if (pSpot.occupiedStatus == true) {
-        own = _1.clientCar.owner;
-        make = _1.clientCar.make;
+        own = _1.clientVeh.owner;
+        make = _1.clientVeh.make;
     }
     return [own, make];
 }

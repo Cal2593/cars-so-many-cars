@@ -31,5 +31,5 @@ exports.UserMap = new Map([
     [27, "Lee Paget"],
     [28, "Alan Thuc"],
     [29, "Rou Xin Yap"],
-    [30, "Charlie Hall"]
+    [0, "Charlie Hall"]
 ]);
