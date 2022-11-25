@@ -1,0 +1,4 @@
+npm run start:dev - will start the app using ts-node ./src/index.ts, watching for changes to .ts and .js files from within src
+npx tsc - will compile the code
+npm run build - rimraf will remove the old build folder before the Typescript compiler emits new code to dist
+npm start - start up the app and execute code from the build version of index.js
