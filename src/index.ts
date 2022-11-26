@@ -1,4 +1,4 @@
-import { ParkingSpot } from './Classes/ParkingSpotClass';
+import { ParkingSpot } from './Classes/ParkingSpotClass'; //erroring because class changed
 import { vehicle } from './Classes/vehicleInterface';
 import { carInSpot } from './app';
 import { CreateArrays } from './arrays';
