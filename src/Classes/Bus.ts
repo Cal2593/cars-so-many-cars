@@ -1,12 +1,13 @@
 import { vehicle } from "./vehicleInterface";
 import { VehicleType } from "../enums/vehicleType";
 
-export class Car implements vehicle{
-    private _type = VehicleType.Car;
+export class Bus implements vehicle{
+    private _type = VehicleType.Bus;
     private _make: string;
     private _model: string;
     private _reg: string;
     private _owner: string;
+    private _company: string;
     private _reservation: boolean;
     private _colour: string;
     private _height: number;
@@ -18,6 +19,7 @@ export class Car implements vehicle{
         mod: string,
         reg: string,
         own: string,
+        com: string,
         res: boolean,
         col: string,
         hei: number,
@@ -29,6 +31,7 @@ export class Car implements vehicle{
         this._model = mod;
         this._reg = reg;
         this._owner = own;
+        this._company = com;
         this._reservation = res;
         this._colour = col;
         this._height = hei;
@@ -62,6 +65,12 @@ export class Car implements vehicle{
     }
     public set owner(value: string) {
         this._owner = value;
+    }
+    public get company(): string {
+        return this._company;
+    }
+    public set company(value: string) {
+        this._company = value;
     }
     public get reservation(): boolean {
         return this._reservation;

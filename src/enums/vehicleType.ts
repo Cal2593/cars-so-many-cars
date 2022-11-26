@@ -4,6 +4,5 @@ export enum VehicleType {
   Lorry,
   Caravan,
   Motorhome,
-  Bus,
-  Trailer
+  Bus
 }

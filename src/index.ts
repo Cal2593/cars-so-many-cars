@@ -6,25 +6,25 @@ import { findSpotInfo } from './findSpotInfo';
 import { VehicleType } from './enums/vehicleType';
 import { Car } from './Classes/Car';
 
-const [spots, reserve, occupy, occupyingCar, owns] = CreateArrays();
+const [spots, reserve, occupy, occupyingCar, owns] = CreateArrays(); //Call CreateArrays and return the created arrays
 
-const specSpot = 'A9';
+const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
 
-const [resStatus, occStatus, occCar, owner] = findSpotInfo(
+const [resStatus, occStatus, occCar, owner] = findSpotInfo( //call findSpotInfo to get the reservation status, occupied status, occupying car, and car owner
   specSpot,
   spots,
   reserve,
   occupy,
   occupyingCar,
   owns
-);
+);// wonder if I can replace this by just pulling from the class once constructed - need to test once Spot Class is created
 
-export const clientVeh = new Car(
+export const clientVeh = new Car( //initialises the Car - pulls in the occupying car make and owner from findSpotInfo
   //VehicleType.Car,
-  occCar,
+  occCar, //from findSpotInfo
   'F6',
   'WV60 SXX',
-  owner,
+  owner, //from findSpotInfo
   true,
   "red",
   2000,
@@ -32,9 +32,9 @@ export const clientVeh = new Car(
   2000
 ); //type,make,model,reg,owner,electric
 
-const pSpot = new ParkingSpot(specSpot, resStatus, occStatus, clientVeh, true);
-
-const [own, make] = carInSpot(pSpot);
+const pSpot = new ParkingSpot(specSpot, resStatus, occStatus, clientVeh, true); //initialise a new parking spot, pull in the specific spot, reservation status, occupied status, and the vehicle
+//specSpot is hard coded line 11, reservation status is returned from findSpotInfo with occupied status, pulls in all details of the vehicle from clientVeh
+const [own, make] = carInSpot(pSpot); //get the owner and make of the car in the spot - duplication?
 
 if (pSpot.occupiedStatus == true) {
   console.log(

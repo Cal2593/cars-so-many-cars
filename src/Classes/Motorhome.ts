@@ -1,8 +1,8 @@
 import { vehicle } from "./vehicleInterface";
 import { VehicleType } from "../enums/vehicleType";
 
-export class Car implements vehicle{
-    private _type = VehicleType.Car;
+export class Motorhome implements vehicle{
+    private _type = VehicleType.Motorhome;
     private _make: string;
     private _model: string;
     private _reg: string;
