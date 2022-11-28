@@ -9,5 +9,4 @@ var VehicleType;
     VehicleType[VehicleType["Caravan"] = 3] = "Caravan";
     VehicleType[VehicleType["Motorhome"] = 4] = "Motorhome";
     VehicleType[VehicleType["Bus"] = 5] = "Bus";
-    VehicleType[VehicleType["Trailer"] = 6] = "Trailer";
 })(VehicleType = exports.VehicleType || (exports.VehicleType = {}));

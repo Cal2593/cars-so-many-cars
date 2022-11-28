@@ -1,5 +1,5 @@
 import { vehicle } from './vehicleInterface';
-import { clientVeh } from '..';
+//import { clientVeh } from '..';
 import { parkingSpot } from './parkingSpotInterface';
 import { ParkingSpotType } from '../enums/parkingSpotType';
 
@@ -36,7 +36,8 @@ export class standardParkingSpot implements parkingSpot {
     this._ID = id;
     this._reservationStatus = resStat;
     this._occupiedStatus = occStat;
-    this._vehi = clientVeh;
+    //this._vehi = clientVeh;
+    this._vehi = vehi;
     this._electricCharging = elecChar;
     this._covered = covered;
     this._valet = valet;

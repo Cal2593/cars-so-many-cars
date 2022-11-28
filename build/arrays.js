@@ -12,6 +12,19 @@ function CreateArrays() {
     const occupy = (0, createOccupied_1.createOccupied)();
     const occupyingCar = (0, createOccupying_1.createOccupying)(occupy);
     const owns = (0, createOwners_1.createOwners)(occupy);
-    return [spots, reserve, occupy, occupyingCar, owns];
+    let spotfile = JSON.stringify(spots);
+    let reservefile = JSON.stringify(reserve);
+    let occupyfile = JSON.stringify(occupy);
+    let occCarfile = JSON.stringify(occupyingCar);
+    let ownfile = JSON.stringify(owns);
+    let arrs = [spotfile, reservefile, occupyfile, occCarfile, ownfile];
+    let arrs2 = JSON.stringify(arrs, null, 2);
+    const fs = require('fs');
+    fs.writeFile('arrays.json', arrs2, (err) => {
+        if (err)
+            throw err;
+        console.log("arrays written to file");
+    });
+    //return [spots, reserve, occupy, occupyingCar, owns] as const;
 }
 exports.CreateArrays = CreateArrays;

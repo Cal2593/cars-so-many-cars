@@ -1,12 +1,18 @@
-import { ParkingSpot } from './Classes/ParkingSpotClass'; //erroring because class changed
+import { parkingSpot } from './Classes/parkingSpotInterface'; 
 import { vehicle } from './Classes/vehicleInterface';
-import { carInSpot } from './app';
+//import { carInSpot } from './app';
 import { CreateArrays } from './arrays';
 import { findSpotInfo } from './findSpotInfo';
 import { VehicleType } from './enums/vehicleType';
 import { Car } from './Classes/Car';
+import { standardParkingSpot } from './Classes/ParkingSpotClass';
+import { parseArrays } from './parseArrays';
 
-const [spots, reserve, occupy, occupyingCar, owns] = CreateArrays(); //Call CreateArrays and return the created arrays
+export const NeedArrays = "no";
+CreateArrays();
+console.log("arrays created");
+//parseArrays();
+
 
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
 
@@ -26,16 +32,16 @@ const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo belo
 
 // use a for each loop to go through an array of created spot objects
 
-const [resStatus, occStatus, occCar, owner] = findSpotInfo( //call findSpotInfo to get the reservation status, occupied status, occupying car, and car owner
+/*const [resStatus, occStatus, occCar, owner] = findSpotInfo( //call findSpotInfo to get the reservation status, occupied status, occupying car, and car owner
   specSpot, // needs to pull from class not from database
   spots,
   reserve,
   occupy,
   occupyingCar,
   owns
-);// wonder if I can replace this by just pulling from the class once constructed - need to test once Spot Class is created
+);*/// wonder if I can replace this by just pulling from the class once constructed - need to test once Spot Class is created
 
-export const clientVeh = new Car( //initialises the Car - pulls in the occupying car make and owner from findSpotInfo
+/*export const clientVeh = new Car( //initialises the Car - pulls in the occupying car make and owner from findSpotInfo
   //VehicleType.Car,
   occCar, //from findSpotInfo
   'F6',
@@ -50,7 +56,7 @@ export const clientVeh = new Car( //initialises the Car - pulls in the occupying
 // create car then write it to database so it isn't overwritten
 // to pull back from the database, put it back into a new Car const
 
-const pSpot = new ParkingSpot(specSpot, resStatus, occStatus, clientVeh, true); //initialise a new parking spot, pull in the specific spot, reservation status, occupied status, and the vehicle
+const pSpot = new standardParkingSpot(specSpot, resStatus, occStatus, clientVeh, true,true,true,"Clevedon",5000,2500,2500,2.99); //initialise a new parking spot, pull in the specific spot, reservation status, occupied status, and the vehicle
 //specSpot is hard coded line 11, reservation status is returned from findSpotInfo with occupied status, pulls in all details of the vehicle from clientVeh
 const [own, make] = carInSpot(pSpot); //get the owner and make of the car in the spot - duplication?
 
@@ -60,7 +66,7 @@ if (pSpot.occupiedStatus == true) {
   );
 } else {
   console.log('Space ' + pSpot.ID + ' is currently vacant');
-}
+}*/
 // Feed in car types and check that the inheritance between Vehicle and Car works
 // Move Create Arrays out of start up
 // Get create arrays to write to memory

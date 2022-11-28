@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Car = void 0;
+exports.Caravan = void 0;
 const vehicleType_1 = require("../enums/vehicleType");
-class Car {
+class Caravan {
     constructor(mak, mod, reg, own, res, col, hei, wei, len) {
-        this._type = vehicleType_1.VehicleType.Car;
+        this._type = vehicleType_1.VehicleType.Caravan;
         this._make = mak;
         this._model = mod;
         this._reg = reg;
@@ -73,4 +73,4 @@ class Car {
         this._length = value;
     }
 }
-exports.Car = Car;
+exports.Caravan = Caravan;

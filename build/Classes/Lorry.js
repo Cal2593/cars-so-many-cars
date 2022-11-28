@@ -1,14 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Car = void 0;
+exports.Lorry = void 0;
 const vehicleType_1 = require("../enums/vehicleType");
-class Car {
-    constructor(mak, mod, reg, own, res, col, hei, wei, len) {
-        this._type = vehicleType_1.VehicleType.Car;
+class Lorry {
+    constructor(mak, mod, reg, own, com, res, col, hei, wei, len) {
+        this._type = vehicleType_1.VehicleType.Lorry;
         this._make = mak;
         this._model = mod;
         this._reg = reg;
         this._owner = own;
+        this._company = com;
         this._reservation = res;
         this._colour = col;
         this._height = hei;
@@ -42,6 +43,12 @@ class Car {
     set owner(value) {
         this._owner = value;
     }
+    get company() {
+        return this._company;
+    }
+    set company(value) {
+        this._company = value;
+    }
     get reservation() {
         return this._reservation;
     }
@@ -73,4 +80,4 @@ class Car {
         this._length = value;
     }
 }
-exports.Car = Car;
+exports.Lorry = Lorry;

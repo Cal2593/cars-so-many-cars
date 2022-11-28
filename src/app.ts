@@ -1,7 +1,10 @@
-//import { Car } from "./CarClass";
-import { clientVeh } from '.';
+import { CreateArrays } from './arrays';
+import { NeedArrays } from '.';
+import { json } from 'stream/consumers';
+//import { clientVeh } from '.';
 
-export function carInSpot(pSpot: { occupiedStatus: boolean }) {
+//import { Car } from "./CarClass";
+/*export function carInSpot(pSpot: { occupiedStatus: boolean }) {
   let own;
   let make;
   if (pSpot.occupiedStatus == true) {
@@ -9,4 +12,4 @@ export function carInSpot(pSpot: { occupiedStatus: boolean }) {
     make = clientVeh.make;
   }
   return [own, make] as const;
-}
+}*/
