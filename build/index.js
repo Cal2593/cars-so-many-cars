@@ -1,10 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NeedArrays = void 0;
-//import { carInSpot } from './app';
-const arrays_1 = require("./arrays");
-exports.NeedArrays = "no";
-(0, arrays_1.CreateArrays)();
+const createSpots_1 = require("./Arrays/createSpots");
+//export const NeedArrays = "no";
+(0, createSpots_1.createSpots)();
 console.log("arrays created");
 //parseArrays();
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below

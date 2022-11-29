@@ -1,15 +1,16 @@
 import { parkingSpot } from './Classes/parkingSpotInterface'; 
 import { vehicle } from './Classes/vehicleInterface';
 //import { carInSpot } from './app';
-import { CreateArrays } from './arrays';
+//import { CreateArrays } from './arrays';
 import { findSpotInfo } from './findSpotInfo';
 import { VehicleType } from './enums/vehicleType';
 import { Car } from './Classes/Car';
 import { standardParkingSpot } from './Classes/ParkingSpotClass';
 import { parseArrays } from './parseArrays';
+import { createSpots } from './Arrays/createSpots';
 
-export const NeedArrays = "no";
-CreateArrays();
+//export const NeedArrays = "no";
+createSpots();
 console.log("arrays created");
 //parseArrays();
 

@@ -1,5 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+//import { CreateArrays } from './arrays';
+//import { NeedArrays } from '.';
 //import { clientVeh } from '.';
 //import { Car } from "./CarClass";
 /*export function carInSpot(pSpot: { occupiedStatus: boolean }) {
