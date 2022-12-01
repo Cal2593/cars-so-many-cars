@@ -25,3 +25,10 @@ export default class StandardUnoccupiedSpotDirector {
             .getResult()
     }
 }
+/*To do
+    Get this director working properly (i.e. not printing out the spot enum)
+    Create other directors for the list in the enum + valet
+    Build out the array creation to have the other relevant details
+    Get everything pulling in via various directors and printing out
+    Set it up so that this info pulls in and then I can set a reservation into a spot
+*/
