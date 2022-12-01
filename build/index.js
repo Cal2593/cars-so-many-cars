@@ -1,10 +1,18 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const createSpots_1 = require("./Arrays/createSpots");
+const parkingSpotType_1 = require("./enums/parkingSpotType");
+const stanUnoccDirector_1 = __importDefault(require("./Classes/stanUnoccDirector"));
 //export const NeedArrays = "no";
-(0, createSpots_1.createSpots)();
-console.log("arrays created");
-//parseArrays();
+//createSpots();
+//console.log("arrays created");
+const SpotTypeSearch = parkingSpotType_1.ParkingSpotType.Standard;
+const SpotLocationSearch = "Bristol";
+const StandardFound = stanUnoccDirector_1.default.construct();
+console.log(StandardFound);
+//const arrays = parseArrays();
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
 // Someone says I want A10
 // Class that handles reservation requests takes that

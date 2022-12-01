@@ -211,7 +211,6 @@ function createSpots() {
             throw err;
         console.log("Data created");
     });
-    //return spotsArr;
 }
 exports.createSpots = createSpots;
 function createStatus() {

@@ -1,14 +1,54 @@
-import { vehicle } from './vehicleInterface';
-//import { clientVeh } from '..';
-import { parkingSpot } from './parkingSpotInterface';
-import { ParkingSpotType } from '../enums/parkingSpotType';
+//Model Object - This object simply contains get/sets to store data received from SpotDAOClass
 
-export class standardParkingSpot implements parkingSpot {
-  private _ID: string;
-  private _spotType = ParkingSpotType.Standard;
+import { ParkingSpotType } from "../enums/parkingSpotType";
+import { ISpotBuilder } from "./ISpotBuilder";
+import Spot from "./spot";
+
+export class SpotBuilder implements ISpotBuilder {
+  spot: Spot
+
+  constructor(){
+    this.spot = new Spot()
+  }
+  setID(ID:string): this {
+    this.spot.ID = ID
+    return this
+  }
+
+  setSpotType(spotType: ParkingSpotType): this {
+      this.spot.spotType = ParkingSpotType
+      return this
+  }
+
+  setReservedStatus(reserved: boolean): this {
+      this.spot.reserved = reserved
+      return this
+  }
+
+  setOccupiedStatus(occupied: boolean): this {
+      this.spot.occupied = occupied
+      return this
+  }
+
+  setLocation(location: string): this {
+      this.spot.location = location
+      return this
+  }
+
+  setBasePrice(basePrice: number): this {
+      this.spot.basePrice = basePrice
+      return this
+  }
+
+  getResult(): Spot {
+      return this.spot
+  }
+
+  /*private _ID: string;
+  private _spotType: string; //Can do ParkingSpotType.Standard to only allow Standard spots
   private _reservationStatus: boolean;
   private _occupiedStatus: boolean;
-  private _vehi: vehicle;
+  private _vehicleRegistration: string;
   private _electricCharging: boolean;
   private _covered: boolean;
   private _valet: boolean;
@@ -20,9 +60,10 @@ export class standardParkingSpot implements parkingSpot {
   
   constructor(
     id: string,
+    spotType: string,
     resStat: boolean,
     occStat: boolean,
-    vehi: vehicle, //do I need this?
+    vehiReg: string,
     elecChar: boolean,
     covered: boolean,
     valet: boolean,
@@ -34,10 +75,10 @@ export class standardParkingSpot implements parkingSpot {
   ) 
   {
     this._ID = id;
+    this._spotType = spotType;
     this._reservationStatus = resStat;
     this._occupiedStatus = occStat;
-    //this._vehi = clientVeh;
-    this._vehi = vehi;
+    this._vehicleRegistration = vehiReg;
     this._electricCharging = elecChar;
     this._covered = covered;
     this._valet = valet;
@@ -53,7 +94,7 @@ export class standardParkingSpot implements parkingSpot {
   public set ID(value: string) {
     this._ID = value;
   }
-  public get spotType() {
+  public get spotType(): string{
     return this._spotType;
   }
   public get reservationStatus(): boolean {
@@ -68,11 +109,11 @@ export class standardParkingSpot implements parkingSpot {
   public set occupiedStatus(value: boolean) {
     this._occupiedStatus = value;
   }
-  public get vehicle(): vehicle {
-    return this._vehi;
+  public get vehicleRegistration(): string {
+    return this._vehicleRegistration;
   }
-  public set vehicle(value: vehicle) {
-    this._vehi = value;
+  public set vehicleRegistration(value: string) {
+    this._vehicleRegistration = value;
   }
   public get electricCharging(): boolean {
     return this._electricCharging;
@@ -121,5 +162,5 @@ export class standardParkingSpot implements parkingSpot {
   }
   public set basePrice(value: number) {
     this._basePrice = value;
-  }
+  }*/
 }

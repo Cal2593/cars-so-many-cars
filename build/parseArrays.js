@@ -4,7 +4,7 @@ exports.parseArrays = void 0;
 function parseArrays() {
     const fs = require('fs');
     let rawFile = fs.readFileSync('arrays.json');
-    let parsed = JSON.parse(rawFile);
-    console.log(parsed);
+    const parsed = JSON.parse(rawFile);
+    return parsed;
 }
 exports.parseArrays = parseArrays;

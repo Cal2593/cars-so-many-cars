@@ -1,18 +1,16 @@
-import { parkingSpot } from './Classes/parkingSpotInterface'; 
-import { vehicle } from './Classes/vehicleInterface';
-//import { carInSpot } from './app';
-//import { CreateArrays } from './arrays';
-import { findSpotInfo } from './findSpotInfo';
-import { VehicleType } from './enums/vehicleType';
-import { Car } from './Classes/Car';
-import { standardParkingSpot } from './Classes/ParkingSpotClass';
 import { parseArrays } from './parseArrays';
 import { createSpots } from './Arrays/createSpots';
+import { ParkingSpotType } from './enums/parkingSpotType';
+import StandardUnoccupiedSpotDirector from './Classes/stanUnoccDirector';
 
 //export const NeedArrays = "no";
-createSpots();
-console.log("arrays created");
-//parseArrays();
+//createSpots();
+//console.log("arrays created");
+const SpotTypeSearch = ParkingSpotType.Standard
+const SpotLocationSearch = "Bristol"
+const StandardFound = StandardUnoccupiedSpotDirector.construct()
+console.log(StandardFound);
+//const arrays = parseArrays();
 
 
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
