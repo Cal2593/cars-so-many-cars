@@ -17,7 +17,7 @@ export default class StandardUnoccupiedSpotDirector {
         }
         return new SpotBuilder()
             .setID(spotFound)
-            .setSpotType(ParkingSpotType.Standard)
+            .setSpotType(ParkingSpotType.Standard) //error on enum is either in the builder or the spot
             .setReservedStatus(false)
             .setOccupiedStatus(false)
             .setLocation("Bristol")

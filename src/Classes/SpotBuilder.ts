@@ -15,7 +15,7 @@ export class SpotBuilder implements ISpotBuilder {
     return this
   }
 
-  setSpotType(spotType: ParkingSpotType): this {
+  setSpotType(spotType: ParkingSpotType): this { //error where it's printing out the enum is here
       this.spot.spotType = ParkingSpotType
       return this
   }
