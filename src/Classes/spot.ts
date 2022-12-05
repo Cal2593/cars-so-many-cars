@@ -1,8 +1,6 @@
-import { ParkingSpotType } from "../enums/parkingSpotType";
-
 export default class Spot {
     ID = "";
-    spotType = ParkingSpotType;
+    spotType = "";
     reserved = false;
     occupied = false;
     location = "";

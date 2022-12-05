@@ -1,6 +1,4 @@
 //Model Object - This object simply contains get/sets to store data received from SpotDAOClass
-
-import { ParkingSpotType } from "../enums/parkingSpotType";
 import { ISpotBuilder } from "./ISpotBuilder";
 import Spot from "./spot";
 
@@ -15,8 +13,8 @@ export class SpotBuilder implements ISpotBuilder {
     return this
   }
 
-  setSpotType(spotType: ParkingSpotType): this { //error where it's printing out the enum is here
-      this.spot.spotType = ParkingSpotType
+  setSpotType(spotType: string): this { //error where it's printing out the enum is here
+      this.spot.spotType = spotType
       return this
   }
 

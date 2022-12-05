@@ -1,12 +1,11 @@
 import { parseArrays } from './parseArrays';
 import { createSpots } from './Arrays/createSpots';
-import { ParkingSpotType } from './enums/parkingSpotType';
 import StandardUnoccupiedSpotDirector from './Classes/stanUnoccDirector';
 
 //export const NeedArrays = "no";
 //createSpots();
 //console.log("arrays created");
-const SpotTypeSearch = ParkingSpotType.Standard
+const SpotTypeSearch = "Standard"
 const SpotLocationSearch = "Bristol"
 const StandardFound = StandardUnoccupiedSpotDirector.construct()
 console.log(StandardFound);

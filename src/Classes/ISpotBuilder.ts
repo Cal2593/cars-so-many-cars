@@ -1,11 +1,10 @@
 //Data Access Object Interface - Defines standard operations that can be performed on Model Objects
-import { ParkingSpotType } from "../enums/parkingSpotType";
 import Spot from "./spot";
 
 export interface ISpotBuilder {
     spot: Spot
     setID(ID: string): this
-    setSpotType(spotType: ParkingSpotType): this
+    setSpotType(spotType: string): this
     setReservedStatus(reserved: boolean): this
     setOccupiedStatus(occupied: boolean): this
     setLocation(location: string): this

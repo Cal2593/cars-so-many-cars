@@ -1,11 +1,9 @@
 "use strict";
-//Model Object - This object simply contains get/sets to store data received from SpotDAOClass
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SpotBuilder = void 0;
-const parkingSpotType_1 = require("../enums/parkingSpotType");
 const spot_1 = __importDefault(require("./spot"));
 class SpotBuilder {
     constructor() {
@@ -16,7 +14,7 @@ class SpotBuilder {
         return this;
     }
     setSpotType(spotType) {
-        this.spot.spotType = parkingSpotType_1.ParkingSpotType;
+        this.spot.spotType = spotType;
         return this;
     }
     setReservedStatus(reserved) {

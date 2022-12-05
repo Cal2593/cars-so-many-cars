@@ -3,12 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const parkingSpotType_1 = require("./enums/parkingSpotType");
 const stanUnoccDirector_1 = __importDefault(require("./Classes/stanUnoccDirector"));
 //export const NeedArrays = "no";
 //createSpots();
 //console.log("arrays created");
-const SpotTypeSearch = parkingSpotType_1.ParkingSpotType.Standard;
+const SpotTypeSearch = "Standard";
 const SpotLocationSearch = "Bristol";
 const StandardFound = stanUnoccDirector_1.default.construct();
 console.log(StandardFound);
