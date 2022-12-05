@@ -1,24 +1,35 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const process_1 = require("process");
 const parseArrays_1 = require("../parseArrays");
 const SpotBuilder_1 = require("./SpotBuilder");
 class StandardUnoccupiedSpotDirector {
     static construct() {
+        var _a, _b;
         const data = (0, parseArrays_1.parseArrays)();
         console.log("parsing complete");
         let found = 0;
-        for (let i = 0; found == 0; i++) {
-            if (data[i].occupied == false && data[i].reservation == false) {
-                var spotFound = data[i].id;
-                found = 1;
+        try {
+            for (let i = 0; found == 0; i++) {
+                if (!((_a = data[i]) === null || _a === void 0 ? void 0 : _a.occupied) && !((_b = data[i]) === null || _b === void 0 ? void 0 : _b.reservation) && data[i].spotType == "Standard") {
+                    var spotFound = data[i].id;
+                    var spotLoc = data[i].location;
+                    var spotCov = data[i].covering;
+                    found = 1;
+                }
             }
         }
-        return new SpotBuilder_1.SpotBuilder()
+        catch (error) {
+            console.log("No spot found");
+            process_1.exit;
+        }
+        return new SpotBuilder_1.SpotBuilder(spotCov)
             .setID(spotFound)
             .setSpotType("Standard") //error on enum is either in the builder or the spot
             .setReservedStatus(false)
             .setOccupiedStatus(false)
-            .setLocation("Bristol")
+            .setLocation(spotLoc)
+            .setCoveringStatus(spotCov)
             .setBasePrice(2)
             .getResult();
     }

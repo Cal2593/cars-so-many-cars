@@ -7,7 +7,7 @@ class Spot {
         this.reserved = false;
         this.occupied = false;
         this.location = "";
-        this.basePrice = 2;
+        this.basePrice = 0;
     }
     construction() {
         return 'Retrieved ${this.spotType} spot ${this.ID}';

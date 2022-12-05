@@ -1,14 +1,21 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const createSpots_1 = require("./Arrays/createSpots");
+const stanUnoccDirector_1 = __importDefault(require("./Classes/stanUnoccDirector"));
 //export const NeedArrays = "no";
-(0, createSpots_1.createSpots)();
-console.log("arrays created");
-/*const SpotTypeSearch = "Standard"
-const SpotLocationSearch = "Bristol"
-const StandardFound = StandardUnoccupiedSpotDirector.construct()
-console.log(StandardFound);*/
-//const arrays = parseArrays();
+//createSpots();
+//console.log("arrays created");
+const SpotTypeSearch = "Standard";
+const SpotLocationSearch = "Bristol";
+const StandardFound = stanUnoccDirector_1.default.construct();
+if ((StandardFound === null || StandardFound === void 0 ? void 0 : StandardFound.ID) != undefined) {
+    console.log(StandardFound);
+}
+else {
+    console.log("I'm sorry, no spot has been found matching your criteria");
+}
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
 // Someone says I want A10
 // Class that handles reservation requests takes that

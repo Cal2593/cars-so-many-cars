@@ -4,9 +4,13 @@ import Spot from "./spot";
 
 export class SpotBuilder implements ISpotBuilder {
   spot: Spot
+  covering: boolean;
 
-  constructor(){
+  constructor(
+    covering: boolean
+  ){
     this.spot = new Spot()
+    this.covering = covering
   }
   setID(ID:string): this {
     this.spot.ID = ID
@@ -25,6 +29,10 @@ export class SpotBuilder implements ISpotBuilder {
 
   setOccupiedStatus(occupied: boolean): this {
       this.spot.occupied = occupied
+      return this
+  }
+  setCoveringStatus(covering: boolean): this {
+      this.covering = covering
       return this
   }
 

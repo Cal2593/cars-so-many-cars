@@ -1,15 +1,26 @@
-import { parseArrays } from './parseArrays';
 import { createSpots } from './Arrays/createSpots';
 import StandardUnoccupiedSpotDirector from './Classes/stanUnoccDirector';
 
-//export const NeedArrays = "no";
-createSpots();
-console.log("arrays created");
-/*const SpotTypeSearch = "Standard"
+//*****Data Creation*****/
+//createSpots();
+//console.log("arrays created");
+
+//*****Request comes in*****/
+const SpotTypeSearch = "Standard"
 const SpotLocationSearch = "Bristol"
+
+//*****Request is processed*****/
+
+//*****Director is selected*****/
 const StandardFound = StandardUnoccupiedSpotDirector.construct()
-console.log(StandardFound);*/
-//const arrays = parseArrays();
+
+//*****Request sent back to user*****/
+
+if(StandardFound?.ID != undefined){
+  console.log(StandardFound);
+}else{
+  console.log("I'm sorry, no spot has been found matching your criteria")
+}
 
 
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below

@@ -1,3 +1,4 @@
+import { exit } from "process";
 import { parseArrays } from "../parseArrays";
 import Spot from "./spot";
 import { SpotBuilder } from "./SpotBuilder";
@@ -7,18 +8,26 @@ export default class StandardUnoccupiedSpotDirector {
         const data = parseArrays()
         console.log("parsing complete")
         let found = 0;
-        for (let i = 0;found == 0;i++){
-            if(data[i].occupied == false && data[i].reservation == false){
-                var spotFound = data[i].id;
-                found = 1;
+        try{
+            for (let i = 0;found == 0;i++){
+                if(!data[i]?.occupied && !data[i]?.reservation && data[i].spotType == "Standard"){
+                    var spotFound = data[i].id;
+                    var spotLoc = data[i].location;
+                    var spotCov = data[i].covering;
+                    found = 1;
+                }
             }
+        }catch (error){
+            console.log("No spot found")
+            exit
         }
-        return new SpotBuilder()
+        return new SpotBuilder(spotCov)
             .setID(spotFound)
             .setSpotType("Standard") //error on enum is either in the builder or the spot
             .setReservedStatus(false)
             .setOccupiedStatus(false)
-            .setLocation("Bristol")
+            .setLocation(spotLoc)
+            .setCoveringStatus(spotCov)
             .setBasePrice(2)
             .getResult()
     }

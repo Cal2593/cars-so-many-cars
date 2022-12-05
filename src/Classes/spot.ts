@@ -4,7 +4,7 @@ export default class Spot {
     reserved = false;
     occupied = false;
     location = "";
-    basePrice = 2;
+    basePrice = 0;
 
     construction(): string {
         return 'Retrieved ${this.spotType} spot ${this.ID}';

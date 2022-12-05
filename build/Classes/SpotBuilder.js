@@ -6,8 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SpotBuilder = void 0;
 const spot_1 = __importDefault(require("./spot"));
 class SpotBuilder {
-    constructor() {
+    constructor(covering) {
         this.spot = new spot_1.default();
+        this.covering = covering;
     }
     setID(ID) {
         this.spot.ID = ID;
@@ -23,6 +24,10 @@ class SpotBuilder {
     }
     setOccupiedStatus(occupied) {
         this.spot.occupied = occupied;
+        return this;
+    }
+    setCoveringStatus(covering) {
+        this.covering = covering;
         return this;
     }
     setLocation(location) {

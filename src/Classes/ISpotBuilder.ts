@@ -3,10 +3,12 @@ import Spot from "./spot";
 
 export interface ISpotBuilder {
     spot: Spot
+    covering?: boolean
     setID(ID: string): this
     setSpotType(spotType: string): this
     setReservedStatus(reserved: boolean): this
     setOccupiedStatus(occupied: boolean): this
+    setCoveringStatus(covering: boolean): this
     setLocation(location: string): this
     setBasePrice(basePrice: number): this
     getResult(): Spot
