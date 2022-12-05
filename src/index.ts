@@ -6,22 +6,21 @@ import StandardUnoccupiedSpotDirector from './Classes/stanUnoccDirector';
 //console.log("arrays created");
 
 //*****Request comes in*****/
-const SpotTypeSearch = "Standard"
-const SpotLocationSearch = "Bristol"
+const SpotTypeSearch = 'Standard';
+const SpotLocationSearch = 'Bristol';
 
 //*****Request is processed*****/
 
 //*****Director is selected*****/
-const StandardFound = StandardUnoccupiedSpotDirector.construct()
+const StandardFound = StandardUnoccupiedSpotDirector.construct();
 
 //*****Request sent back to user*****/
 
-if(StandardFound?.ID != undefined){
+if (StandardFound?.ID != undefined) {
   console.log(StandardFound);
-}else{
-  console.log("I'm sorry, no spot has been found matching your criteria")
+} else {
+  console.log("I'm sorry, no spot has been found matching your criteria");
 }
-
 
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
 
@@ -48,7 +47,7 @@ const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo belo
   occupy,
   occupyingCar,
   owns
-);*/// wonder if I can replace this by just pulling from the class once constructed - need to test once Spot Class is created
+);*/ // wonder if I can replace this by just pulling from the class once constructed - need to test once Spot Class is created
 
 /*export const clientVeh = new Car( //initialises the Car - pulls in the occupying car make and owner from findSpotInfo
   //VehicleType.Car,

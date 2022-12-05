@@ -1,7 +1,6 @@
 import { VehicleType } from '../enums/vehicleType';
 
 export interface vehicle {
-
   get type(): VehicleType;
   set type(value: VehicleType);
   get make(): string;
@@ -22,5 +21,4 @@ export interface vehicle {
   set weight(value: number);
   get length(): number;
   set length(value: number);
-  
 }

@@ -1,38 +1,38 @@
 //Data Access Object Interface - Defines standard operations that can be performed on Model Objects
-import Spot from "./spot";
+import Spot from './spot';
 
 export interface ISpotBuilder {
-    spot: Spot
-    covering?: boolean
-    setID(ID: string): this
-    setSpotType(spotType: string): this
-    setReservedStatus(reserved: boolean): this
-    setOccupiedStatus(occupied: boolean): this
-    setCoveringStatus(covering: boolean): this
-    setLocation(location: string): this
-    setBasePrice(basePrice: number): this
-    getResult(): Spot
+  spot: Spot;
+  covering?: boolean;
+  setID(ID: string): this;
+  setSpotType(spotType: string): this;
+  setReservedStatus(reserved: boolean): this;
+  setOccupiedStatus(occupied: boolean): this;
+  setCoveringStatus(covering: boolean): this;
+  setLocation(location: string): this;
+  setBasePrice(basePrice: number): this;
+  getResult(): Spot;
 
-    //get ID(): string;
-    //set ID(value: string);
-    //get spotType(): string;
-    //set spotType(value: string);
-    //get reservationStatus(): boolean;
-    //set reservationStatus(value: boolean);
-    //get occupiedStatus(): boolean; 
-    //set occupiedStatus(value: boolean);
-    //get vehicleRegistration(): string;
-    //set vehicleRegistration(value: string);
-    ////get electricCharging(): boolean;
-    ////set electricCharging(value: boolean);
-    ////get covered(): boolean; //in the future - could check weather and when it's sunny recommend covered spots
-    ////set covered(value: boolean); 
-    ////get valet(): boolean;
-    ////set valet(value: boolean);
-    //get location(): string;
-    //set location(value: string);
-    //get basePrice(): number;
-    //set basePrice(value: number);
+  //get ID(): string;
+  //set ID(value: string);
+  //get spotType(): string;
+  //set spotType(value: string);
+  //get reservationStatus(): boolean;
+  //set reservationStatus(value: boolean);
+  //get occupiedStatus(): boolean;
+  //set occupiedStatus(value: boolean);
+  //get vehicleRegistration(): string;
+  //set vehicleRegistration(value: string);
+  ////get electricCharging(): boolean;
+  ////set electricCharging(value: boolean);
+  ////get covered(): boolean; //in the future - could check weather and when it's sunny recommend covered spots
+  ////set covered(value: boolean);
+  ////get valet(): boolean;
+  ////set valet(value: boolean);
+  //get location(): string;
+  //set location(value: string);
+  //get basePrice(): number;
+  //set basePrice(value: number);
 }
 
 /*

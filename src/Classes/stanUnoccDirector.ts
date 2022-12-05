@@ -1,36 +1,40 @@
-import { exit } from "process";
-import { parseArrays } from "../parseArrays";
-import Spot from "./spot";
-import { SpotBuilder } from "./SpotBuilder";
+import { exit } from 'process';
+import { parseArrays } from '../parseArrays';
+import Spot from './spot';
+import { SpotBuilder } from './SpotBuilder';
 
 export default class StandardUnoccupiedSpotDirector {
-    static construct(): Spot {
-        const data = parseArrays()
-        console.log("parsing complete")
-        let found = 0;
-        try{
-            for (let i = 0;found == 0;i++){
-                if(!data[i]?.occupied && !data[i]?.reservation && data[i].spotType == "Standard"){
-                    var spotFound = data[i].id;
-                    var spotLoc = data[i].location;
-                    var spotCov = data[i].covering;
-                    found = 1;
-                }
-            }
-        }catch (error){
-            console.log("No spot found")
-            exit
+  static construct(): Spot {
+    const data = parseArrays();
+    console.log('parsing complete');
+    let found = 0;
+    try {
+      for (let i = 0; found == 0; i++) {
+        if (
+          !data[i]?.occupied &&
+          !data[i]?.reservation &&
+          data[i].spotType == 'Standard'
+        ) {
+          var spotFound = data[i].id;
+          var spotLoc = data[i].location;
+          var spotCov = data[i].covering;
+          found = 1;
         }
-        return new SpotBuilder(spotCov)
-            .setID(spotFound)
-            .setSpotType("Standard") //error on enum is either in the builder or the spot
-            .setReservedStatus(false)
-            .setOccupiedStatus(false)
-            .setLocation(spotLoc)
-            .setCoveringStatus(spotCov)
-            .setBasePrice(2)
-            .getResult()
+      }
+    } catch (error) {
+      console.log('No spot found');
+      exit;
     }
+    return new SpotBuilder(spotCov)
+      .setID(spotFound)
+      .setSpotType('Standard') //error on enum is either in the builder or the spot
+      .setReservedStatus(false)
+      .setOccupiedStatus(false)
+      .setLocation(spotLoc)
+      .setCoveringStatus(spotCov)
+      .setBasePrice(2)
+      .getResult();
+  }
 }
 /*To do
     Create other directors for the list in the enum + valet

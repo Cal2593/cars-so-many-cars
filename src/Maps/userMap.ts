@@ -98,5 +98,5 @@ export const UserMap = new Map<number, string>([
   [96, 'Tyler Seguin'],
   [97, 'Miro Heiskanen'],
   [98, 'Mason Marchment'],
-  [99, 'Ty Dellandrea'],
+  [99, 'Ty Dellandrea']
 ]);

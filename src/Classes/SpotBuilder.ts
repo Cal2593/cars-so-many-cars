@@ -1,53 +1,52 @@
 //Model Object - This object simply contains get/sets to store data received from SpotDAOClass
-import { ISpotBuilder } from "./ISpotBuilder";
-import Spot from "./spot";
+import { ISpotBuilder } from './ISpotBuilder';
+import Spot from './spot';
 
 export class SpotBuilder implements ISpotBuilder {
-  spot: Spot
+  spot: Spot;
   covering: boolean;
 
-  constructor(
-    covering: boolean
-  ){
-    this.spot = new Spot()
-    this.covering = covering
+  constructor(covering: boolean) {
+    this.spot = new Spot();
+    this.covering = covering;
   }
-  setID(ID:string): this {
-    this.spot.ID = ID
-    return this
+  setID(ID: string): this {
+    this.spot.ID = ID;
+    return this;
   }
 
-  setSpotType(spotType: string): this { //error where it's printing out the enum is here
-      this.spot.spotType = spotType
-      return this
+  setSpotType(spotType: string): this {
+    //error where it's printing out the enum is here
+    this.spot.spotType = spotType;
+    return this;
   }
 
   setReservedStatus(reserved: boolean): this {
-      this.spot.reserved = reserved
-      return this
+    this.spot.reserved = reserved;
+    return this;
   }
 
   setOccupiedStatus(occupied: boolean): this {
-      this.spot.occupied = occupied
-      return this
+    this.spot.occupied = occupied;
+    return this;
   }
   setCoveringStatus(covering: boolean): this {
-      this.covering = covering
-      return this
+    this.covering = covering;
+    return this;
   }
 
   setLocation(location: string): this {
-      this.spot.location = location
-      return this
+    this.spot.location = location;
+    return this;
   }
 
   setBasePrice(basePrice: number): this {
-      this.spot.basePrice = basePrice
-      return this
+    this.spot.basePrice = basePrice;
+    return this;
   }
 
   getResult(): Spot {
-      return this.spot
+    return this.spot;
   }
 
   /*private _ID: string;
