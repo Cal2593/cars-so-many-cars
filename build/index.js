@@ -1,16 +1,13 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const stanUnoccDirector_1 = __importDefault(require("./Classes/stanUnoccDirector"));
+const createSpots_1 = require("./Arrays/createSpots");
 //export const NeedArrays = "no";
-//createSpots();
-//console.log("arrays created");
-const SpotTypeSearch = "Standard";
-const SpotLocationSearch = "Bristol";
-const StandardFound = stanUnoccDirector_1.default.construct();
-console.log(StandardFound);
+(0, createSpots_1.createSpots)();
+console.log("arrays created");
+/*const SpotTypeSearch = "Standard"
+const SpotLocationSearch = "Bristol"
+const StandardFound = StandardUnoccupiedSpotDirector.construct()
+console.log(StandardFound);*/
 //const arrays = parseArrays();
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
 // Someone says I want A10
@@ -62,14 +59,14 @@ if (pSpot.occupiedStatus == true) {
 }*/
 // Feed in car types and check that the inheritance between Vehicle and Car works
 // Move Create Arrays out of start up
-// Get create arrays to write to memory
-//  - write an array to a csv
-//  - read in from csv
-//  - create a file in a place
-//    - tell program to create me carpark.csv
+// Get create arrays to write to memory - done
+//  - write an array to a csv - done
+//  - read in from csv - done
+//  - create a file in a place -done
+//    - tell program to create me carpark.csv - done
 //  - write to that file after it's been created
 // Create other vehicle classes - Done
-// Changing parking spot to interface
+// Changing parking spot to interface - done
 // Create other parking spot classes
 // Look up data structures
 // Clean up my index.ts file
