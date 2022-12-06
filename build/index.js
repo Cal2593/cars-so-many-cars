@@ -4,18 +4,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const stanUnoccDirector_1 = __importDefault(require("./Classes/stanUnoccDirector"));
-//export const NeedArrays = "no";
+const UserReservationRequest_1 = require("./Classes/UserReservationRequest");
+const RegistrationAPICall_1 = require("./RegistrationAPICall");
+const fs = require('fs');
+//*****Data Creation*****/
 //createSpots();
 //console.log("arrays created");
-const SpotTypeSearch = "Standard";
-const SpotLocationSearch = "Bristol";
+//*****Request comes in*****/
+const vehicleReg = 'WF58 YAX';
+const resStart = new Date(2022, 12, 7, 12, 0, 0, 0);
+const resEnd = new Date(2022, 12, 7, 14, 0, 0, 0);
+const elecRequired = false;
+const covRequired = false;
+const valRequired = false;
+const SpecificLocationSearch = 'Bristol';
+const reservationRequest = new UserReservationRequest_1.UserReservationRequest(vehicleReg, resStart, resEnd, elecRequired, covRequired, valRequired, SpecificLocationSearch);
+//*****Request is processed*****/
+//first grab the registration and pass it to the registration api to get make/model
+const vehicleRegistrationForSearch = reservationRequest.vehicleRegistration;
+//input into apiCall function
+(0, RegistrationAPICall_1.RegistrationAPICall)(vehicleRegistrationForSearch);
+const data = require('../userReg.json');
+const vehicleMake = data.make;
+console.log(vehicleMake);
+//*****Director is selected*****/
 const StandardFound = stanUnoccDirector_1.default.construct();
-if ((StandardFound === null || StandardFound === void 0 ? void 0 : StandardFound.ID) != undefined) {
-    console.log(StandardFound);
-}
-else {
-    console.log("I'm sorry, no spot has been found matching your criteria");
-}
+//*****Request sent back to user*****/
+/*if (StandardFound?.ID != undefined) {
+  console.log(StandardFound);
+} else {
+  console.log("I'm sorry, no spot has been found matching your criteria");
+}*/
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
 // Someone says I want A10
 // Class that handles reservation requests takes that

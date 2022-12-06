@@ -88,4 +88,4 @@ Motorhome parking spot
     Has a base price
     Has a width: 3000mm
     Has a length: 13000mm
-*/ 
+*/

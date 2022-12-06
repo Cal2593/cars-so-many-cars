@@ -15,6 +15,7 @@ class SpotBuilder {
         return this;
     }
     setSpotType(spotType) {
+        //error where it's printing out the enum is here
         this.spot.spotType = spotType;
         return this;
     }

@@ -1,26 +1,40 @@
 import { createSpots } from './Arrays/createSpots';
 import StandardUnoccupiedSpotDirector from './Classes/stanUnoccDirector';
+import { UserReservationRequest } from './Classes/UserReservationRequest';
+import { RegistrationAPICall } from './RegistrationAPICall';
+const fs = require('fs');
 
 //*****Data Creation*****/
 //createSpots();
 //console.log("arrays created");
 
 //*****Request comes in*****/
-const SpotTypeSearch = 'Standard';
-const SpotLocationSearch = 'Bristol';
+const vehicleReg = 'WF58 YAX';
+const resStart = new Date(2022,12,7,12,0,0,0);
+const resEnd = new Date(2022,12,7,14,0,0,0);
+const elecRequired = false;
+const covRequired = false;
+const valRequired = false;
+const SpecificLocationSearch = 'Bristol';
 
+const reservationRequest = new UserReservationRequest(vehicleReg,resStart,resEnd,elecRequired,covRequired,valRequired,SpecificLocationSearch)
 //*****Request is processed*****/
+//first grab the registration and pass it to the registration api to get make/model
+const vehicleRegistrationForSearch = reservationRequest.vehicleRegistration;
+//input into apiCall function
+RegistrationAPICall(vehicleRegistrationForSearch);
+
 
 //*****Director is selected*****/
 const StandardFound = StandardUnoccupiedSpotDirector.construct();
 
 //*****Request sent back to user*****/
 
-if (StandardFound?.ID != undefined) {
+/*if (StandardFound?.ID != undefined) {
   console.log(StandardFound);
 } else {
   console.log("I'm sorry, no spot has been found matching your criteria");
-}
+}*/
 
 const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
 

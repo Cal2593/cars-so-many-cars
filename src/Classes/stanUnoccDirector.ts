@@ -6,7 +6,6 @@ import { SpotBuilder } from './SpotBuilder';
 export default class StandardUnoccupiedSpotDirector {
   static construct(): Spot {
     const data = parseArrays();
-    console.log('parsing complete');
     let found = 0;
     try {
       for (let i = 0; found == 0; i++) {

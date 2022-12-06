@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Spot {
     constructor() {
-        this.ID = "";
-        this.spotType = "";
+        this.ID = '';
+        this.spotType = '';
         this.reserved = false;
         this.occupied = false;
-        this.location = "";
+        this.location = '';
         this.basePrice = 0;
     }
     construction() {

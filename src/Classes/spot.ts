@@ -4,6 +4,7 @@ export default class Spot {
   reserved = false;
   occupied = false;
   location = '';
+  covering?: boolean;
   basePrice = 0;
 
   construction(): string {
