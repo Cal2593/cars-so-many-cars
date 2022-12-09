@@ -1,6 +1,7 @@
 import { createSpots } from './Arrays/createSpots';
 import StandardUnoccupiedSpotDirector from './Classes/stanUnoccDirector';
 import { UserReservationRequest } from './Classes/UserReservationRequest';
+import { getVehicleData } from './getVehicleData';
 import { RegistrationAPICall } from './RegistrationAPICall';
 const fs = require('fs');
 
@@ -22,7 +23,10 @@ const reservationRequest = new UserReservationRequest(vehicleReg,resStart,resEnd
 //first grab the registration and pass it to the registration api to get make/model
 const vehicleRegistrationForSearch = reservationRequest.vehicleRegistration;
 //input into apiCall function
-RegistrationAPICall(vehicleRegistrationForSearch);
+RegistrationAPICall(vehicleRegistrationForSearch); //call the api and pass in the reg
+const vehicleData = getVehicleData(); //parse the json and return relevant details
+
+console.log(vehicleData);
 
 
 //*****Director is selected*****/

@@ -1,8 +1,10 @@
+import { resolve } from "path";
+
 const fs = require('fs');
 const https = require('follow-redirects').https;
 const APItoken = require('../config.json');
 
-export async function RegistrationAPICall(
+export function RegistrationAPICall(
     vehicleRegistration: string
 ){  
     const options = {
@@ -30,10 +32,7 @@ export async function RegistrationAPICall(
 
             fs.writeFile('userReg.json', creation, (err: any) => {
                 if (err) throw err;
-                console.log('Data created');
             });
-
-            console.log(body.toString());
         })
 
         res.on('error', function(error: any) {
@@ -46,14 +45,4 @@ export async function RegistrationAPICall(
     req.end();
 
     return;
-
-    /*const raw = fs.readFileSync('userReg.json');
-    const parsedData = JSON.parse(raw);
-    
-    const vehicleMake = parsedData.make;
-    const vehicleType = parsedData.wheelplan;
-    const vehicleFuelType = parsedData.fuelType;
-    const vehicleColour = parsedData.colour;
-
-    return [vehicleMake, vehicleType, vehicleFuelType, vehicleColour] as const;*/
 }

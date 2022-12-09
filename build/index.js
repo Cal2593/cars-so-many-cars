@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const stanUnoccDirector_1 = __importDefault(require("./Classes/stanUnoccDirector"));
 const UserReservationRequest_1 = require("./Classes/UserReservationRequest");
+const getVehicleData_1 = require("./getVehicleData");
 const RegistrationAPICall_1 = require("./RegistrationAPICall");
 const fs = require('fs');
 //*****Data Creation*****/
@@ -23,10 +24,9 @@ const reservationRequest = new UserReservationRequest_1.UserReservationRequest(v
 //first grab the registration and pass it to the registration api to get make/model
 const vehicleRegistrationForSearch = reservationRequest.vehicleRegistration;
 //input into apiCall function
-(0, RegistrationAPICall_1.RegistrationAPICall)(vehicleRegistrationForSearch);
-const data = require('../userReg.json');
-const vehicleMake = data.make;
-console.log(vehicleMake);
+(0, RegistrationAPICall_1.RegistrationAPICall)(vehicleRegistrationForSearch); //call the api and pass in the reg
+const vehicleData = (0, getVehicleData_1.getVehicleData)(); //parse the json and return relevant details
+console.log(vehicleData);
 //*****Director is selected*****/
 const StandardFound = stanUnoccDirector_1.default.construct();
 //*****Request sent back to user*****/
