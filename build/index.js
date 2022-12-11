@@ -7,12 +7,13 @@ const stanUnoccDirector_1 = __importDefault(require("./Classes/stanUnoccDirector
 const UserReservationRequest_1 = require("./Classes/UserReservationRequest");
 const getVehicleData_1 = require("./getVehicleData");
 const RegistrationAPICall_1 = require("./RegistrationAPICall");
+const ReservationRequestChecker_1 = require("./ReservationRequestChecker");
 const fs = require('fs');
 //*****Data Creation*****/
 //createSpots();
 //console.log("arrays created");
 //*****Request comes in*****/
-const vehicleReg = 'WF58 YAX';
+const vehicleReg = 'WV60 SXX';
 const resStart = new Date(2022, 12, 7, 12, 0, 0, 0);
 const resEnd = new Date(2022, 12, 7, 14, 0, 0, 0);
 const elecRequired = false;
@@ -26,7 +27,16 @@ const vehicleRegistrationForSearch = reservationRequest.vehicleRegistration;
 //input into apiCall function
 (0, RegistrationAPICall_1.RegistrationAPICall)(vehicleRegistrationForSearch); //call the api and pass in the reg
 const vehicleData = (0, getVehicleData_1.getVehicleData)(); //parse the json and return relevant details
-console.log(vehicleData);
+const response = (0, ReservationRequestChecker_1.ReservationRequestChecker)(reservationRequest, vehicleData);
+if (response == false) {
+    //do nothing - proceed with code
+}
+else {
+    console.log(response.toString());
+    //await response from user about altering the reservation request
+}
+//console.log(vehicleData);
+//Check whether user has input data correctly
 //*****Director is selected*****/
 const StandardFound = stanUnoccDirector_1.default.construct();
 //*****Request sent back to user*****/

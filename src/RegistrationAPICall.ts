@@ -1,5 +1,3 @@
-import { resolve } from "path";
-
 const fs = require('fs');
 const https = require('follow-redirects').https;
 const APItoken = require('../config.json');
