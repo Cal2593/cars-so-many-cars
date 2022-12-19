@@ -19,16 +19,14 @@ export function RegistrationAPICall(
     var req = https.request(options, function(res:any){
         const chunks: any = [];
 
-        res.on('data',function(chunk: any) {
+        res.on('data', function(chunk: any) {
             chunks.push(chunk);
         });
 
         res.on('end', function(chunk: any) {
-            const body = Buffer.concat(chunks);
-            const body2 = body.toString();
-            const creation: string = JSON.stringify(body2);
-
-            fs.writeFile('userReg.json', creation, (err: any) => {
+            const body = Buffer.concat(chunks).toString();
+            
+            fs.writeFileSync('userReg.json', body, (err: any) => {
                 if (err) throw err;
             });
         })

@@ -13,6 +13,7 @@ const fs = require('fs');
 //createSpots();
 //console.log("arrays created");
 //*****Request comes in*****/
+//const vehicleReg: string = 'WF58 YAX';
 const vehicleReg = 'WV60 SXX';
 const resStart = new Date(2022, 12, 7, 12, 0, 0, 0);
 const resEnd = new Date(2022, 12, 7, 14, 0, 0, 0);
@@ -26,15 +27,20 @@ const reservationRequest = new UserReservationRequest_1.UserReservationRequest(v
 const vehicleRegistrationForSearch = reservationRequest.vehicleRegistration;
 //input into apiCall function
 (0, RegistrationAPICall_1.RegistrationAPICall)(vehicleRegistrationForSearch); //call the api and pass in the reg
-const vehicleData = (0, getVehicleData_1.getVehicleData)(); //parse the json and return relevant details
-const response = (0, ReservationRequestChecker_1.ReservationRequestChecker)(reservationRequest, vehicleData);
-if (response == false) {
-    //do nothing - proceed with code
-}
-else {
-    console.log(response.toString());
-    //await response from user about altering the reservation request
-}
+let vehicleData;
+setTimeout(() => {
+    vehicleData = (0, getVehicleData_1.getVehicleData)();
+    console.log(vehicleData);
+    const response = (0, ReservationRequestChecker_1.ReservationRequestChecker)(reservationRequest, vehicleData);
+    if (response == false) {
+        //do nothing - proceed with code
+    }
+    else {
+        console.log(response.toString());
+        //await response from user about altering the reservation request
+    }
+}, 500);
+//const vehicleData = getVehicleData(vehicleRegistrationForSearch); //parse the json and return relevant details
 //console.log(vehicleData);
 //Check whether user has input data correctly
 //*****Director is selected*****/

@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getVehicleData = void 0;
 const fs = require('fs');
-function getVehicleData() {
+function getVehicleData( /*vehicleRegistrationForSearch: string*/) {
+    //RegistrationAPICall(vehicleRegistrationForSearch);
     const rawUserData = fs.readFileSync('userReg.json');
-    const firstparse = JSON.parse(rawUserData);
-    const finalUserData = JSON.parse(firstparse);
+    const finalUserData = JSON.parse(rawUserData);
     let electricFuel;
     if (finalUserData.fuelType == "ELECTRICITY") {
         electricFuel = true;

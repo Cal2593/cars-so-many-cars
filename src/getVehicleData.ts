@@ -1,9 +1,10 @@
+import { RegistrationAPICall } from "./RegistrationAPICall";
 const fs = require('fs');
 
-export function getVehicleData(){
+export function getVehicleData(/*vehicleRegistrationForSearch: string*/){
+        //RegistrationAPICall(vehicleRegistrationForSearch);
         const rawUserData = fs.readFileSync('userReg.json');
-        const firstparse = JSON.parse(rawUserData);
-        const finalUserData = JSON.parse(firstparse);
+        const finalUserData = JSON.parse(rawUserData);
 
         let electricFuel: boolean;
         if(finalUserData.fuelType == "ELECTRICITY"){

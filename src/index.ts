@@ -11,13 +11,14 @@ const fs = require('fs');
 //console.log("arrays created");
 
 //*****Request comes in*****/
-const vehicleReg = 'WV60 SXX';
-const resStart = new Date(2022,12,7,12,0,0,0);
-const resEnd = new Date(2022,12,7,14,0,0,0);
-const elecRequired = false;
-const covRequired = false;
-const valRequired = false;
-const SpecificLocationSearch = 'Bristol';
+//const vehicleReg: string = 'WF58 YAX';
+const vehicleReg: string = 'WV60 SXX';
+const resStart: Date = new Date(2022,12,7,12,0,0,0);
+const resEnd: Date = new Date(2022,12,7,14,0,0,0);
+const elecRequired: boolean = false;
+const covRequired: boolean = false;
+const valRequired: boolean = false;
+const SpecificLocationSearch: string = 'Bristol';
 
 const reservationRequest = new UserReservationRequest(vehicleReg,resStart,resEnd,elecRequired,covRequired,valRequired,SpecificLocationSearch)
 //*****Request is processed*****/
@@ -25,15 +26,25 @@ const reservationRequest = new UserReservationRequest(vehicleReg,resStart,resEnd
 const vehicleRegistrationForSearch = reservationRequest.vehicleRegistration;
 //input into apiCall function
 RegistrationAPICall(vehicleRegistrationForSearch); //call the api and pass in the reg
-const vehicleData = getVehicleData(); //parse the json and return relevant details
-const response: boolean | string | string[] = ReservationRequestChecker(reservationRequest,vehicleData);
-if(response == false){
-  //do nothing - proceed with code
-}else{
-  console.log(response.toString());
-  //await response from user about altering the reservation request
-}
+let vehicleData;
+setTimeout(() => {
+  vehicleData = getVehicleData();
+  console.log(vehicleData);
+  const response: (boolean | string |string[]) = ReservationRequestChecker(reservationRequest, vehicleData);
+  if(response == false){
+    //do nothing - proceed with code
+  }else{
+    console.log(response.toString());
+    //await response from user about altering the reservation request
+  }
+},500);
+//const vehicleData = getVehicleData(vehicleRegistrationForSearch); //parse the json and return relevant details
 //console.log(vehicleData);
+
+
+  
+
+  
 
 //Check whether user has input data correctly
 

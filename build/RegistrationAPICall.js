@@ -21,10 +21,8 @@ function RegistrationAPICall(vehicleRegistration) {
             chunks.push(chunk);
         });
         res.on('end', function (chunk) {
-            const body = Buffer.concat(chunks);
-            const body2 = body.toString();
-            const creation = JSON.stringify(body2);
-            fs.writeFile('userReg.json', creation, (err) => {
+            const body = Buffer.concat(chunks).toString();
+            fs.writeFileSync('userReg.json', body, (err) => {
                 if (err)
                     throw err;
             });
