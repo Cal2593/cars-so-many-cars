@@ -1,16 +1,13 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const stanUnoccDirector_1 = __importDefault(require("./Classes/stanUnoccDirector"));
-const UserReservationRequest_1 = require("./Classes/UserReservationRequest");
-const reservationCheck_1 = require("./reservationCheck");
-const fs = require('fs');
+const createBays_1 = require("./Arrays/createBays");
+//const fs = require('fs');
 //*****Data Creation*****/
+(0, createBays_1.createBays)('Yate');
 //createSpots();
 //console.log("arrays created");
 //*****Request comes in*****/
+/*
 const userID = 1; // add this into class - also create new user class
 //const vehicleReg: string = 'WF58 YAX'; // Skoda Fabia
 //const vehicleReg: string = 'WJ21 MGZ'; //Mum's hybrid toyota
@@ -19,31 +16,47 @@ const vehicleReg = 'WJ55 CXZ'; //Diesel white fiat motorhome
 //const vehicleReg: string = 'M4 OUW'; // Petrol BMW Car
 //const vehicleReg: string = 'WV13 UJO'; // Diesel Renault (think this is a van)
 //const vehicleReg: string = 'N530 EJC'; // Becky's Nissan SORN
-//const vehicleReg: string = 'S694 SAD'; //Vehicle not found
+//const vehicleReg: string = 'S694 SAD'; // Vehicle not found
 //const vehicleReg: string = 'M326 MHM'; // Land rover 404
 //const vehicleReg: string = 'LP10 CXH'; // Diesel Citroen (think this is a van)
 //const vehicleReg: string = 'WV60 SXX'; // Honda CBF (SORN)
 //const vehicleReg: string = 'LP156 IOU'; // Too long registration
-const resStart = new Date(2022, 12, 7, 12, 0, 0, 0);
-const resEnd = new Date(2022, 12, 7, 14, 0, 0, 0);
+const resStart: Date = new Date(2022, 12, 7, 12, 0, 0, 0);
+const resEnd: Date = new Date(2022, 12, 7, 14, 0, 0, 0);
 const elecRequired = false;
 const covRequired = false;
 const valRequired = false;
+const accRequired = false;
 const SpecificLocationSearch = 'Bristol';
+*/
 //*****Request is processed*****/
-const reservationRequest = new UserReservationRequest_1.UserReservationRequest(userID, vehicleReg, resStart, resEnd, elecRequired, covRequired, valRequired, SpecificLocationSearch);
-(0, reservationCheck_1.reservationCheck)(reservationRequest, (data) => {
+/*
+const reservationRequest: UserReservationRequest = new UserReservationRequest(
+  userID,
+  vehicleReg,
+  resStart,
+  resEnd,
+  elecRequired,
+  covRequired,
+  valRequired,
+  accRequired,
+  SpecificLocationSearch
+);
+reservationCheck(
+  reservationRequest,
+  (data: searchableUserReservationRequest) => {
     console.log(data);
-});
+  }
+);
+*/
 //*****Director is selected*****/
-const StandardFound = stanUnoccDirector_1.default.construct();
+//const StandardFound = StandardUnoccupiedSpotDirector.construct();
 //*****Request sent back to user*****/
 /*if (StandardFound?.ID != undefined) {
   console.log(StandardFound);
 } else {
   console.log("I'm sorry, no spot has been found matching your criteria");
 }*/
-const specSpot = 'A9'; //Spot hard-coded as A9 - gets fed into findSpotInfo below
 // Someone says I want A10
 // Class that handles reservation requests takes that
 //    - takes spot number(if applicable) / start date-time / end date-time / type of spot requested (if applicable) / car info (if applicable) / name of requester

@@ -18,7 +18,8 @@ function reservationCheck(reservationRequest, callback) {
         let coverResponse = false;
         let elecResponse = false;
         const vehicleForm = vehicleData[2];
-        if (response == false) { //revamp this in the response creator to check if valeting can be offered
+        if (response == false) {
+            //revamp this in the response creator to check if valeting can be offered
             coverResponse = reservationRequest.coveredSpotRequired;
             elecResponse = reservationRequest.electricChargingRequired;
             valetResponse = reservationRequest.valetSpotRequired;
@@ -29,22 +30,22 @@ function reservationCheck(reservationRequest, callback) {
             console.log(response.toString());
             //await response from user about altering the reservation request
             switch (vehicleForm) {
-                case "Lorry":
+                case 'Lorry':
                     valetResponse = false; //Hard code
                     coverResponse = false; //Hard code
                     elecResponse = false; //Hard code
                     break;
-                case "Motorhome/Caravan":
+                case 'Motorhome/Caravan':
                     valetResponse = false; //Hard code
                     coverResponse = false; //Hard code
                     elecResponse = true; // Actual user response
                     break;
-                case "Motorbike":
-                case "Tricycle":
-                case "Car":
-                    let usersValetResp = true; //pulling in actual response
-                    let usersCoverResp = false; //pulling in actual response
-                    let usersElecResp = false; //pulling in actual response
+                case 'Motorbike':
+                case 'Tricycle':
+                case 'Car':
+                    const usersValetResp = true; //pulling in actual response
+                    const usersCoverResp = false; //pulling in actual response
+                    const usersElecResp = false; //pulling in actual response
                     if (usersValetResp) {
                         valetResponse = true;
                         coverResponse = true;

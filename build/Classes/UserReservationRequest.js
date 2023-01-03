@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserReservationRequest = void 0;
 class UserReservationRequest {
-    constructor(userID, vehicleRegistration, resStart, resEnd, elecRequired, covRequired, valRequired, locationRequired) {
+    constructor(userID, vehicleRegistration, resStart, resEnd, elecRequired, covRequired, valRequired, accRequired, locationRequired) {
         this._userID = userID;
         this._vehicleRegistration = vehicleRegistration;
         this._reservationStartDateTime = resStart;
@@ -10,6 +10,7 @@ class UserReservationRequest {
         this._electricChargingRequired = elecRequired;
         this._coveredSpotRequired = covRequired;
         this._valetSpotRequired = valRequired;
+        this._accessibleSpotRequired = accRequired;
         this._specificLocationRequired = locationRequired;
     }
     get userID() {
@@ -38,6 +39,9 @@ class UserReservationRequest {
     }
     get UserReservationRequest() {
         return this.UserReservationRequest;
+    }
+    get accessibleSpotRequired() {
+        return this._accessibleSpotRequired;
     }
 }
 exports.UserReservationRequest = UserReservationRequest;

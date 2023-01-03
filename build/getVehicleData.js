@@ -5,29 +5,31 @@ const fs = require('fs');
 function getVehicleData( /*vehicleRegistrationForSearch: string*/) {
     const rawUserData = fs.readFileSync('userReg.json');
     const finalUserData = JSON.parse(rawUserData);
-    if (finalUserData.hasOwnProperty("errors")) {
+    if (finalUserData.hasOwnProperty('errors')) {
         switch (finalUserData.errors[0].status) {
-            case "400":
-                throw new Error("400 - Invalid format for vehicle registration provided");
+            case '400':
+                throw new Error('400 - Invalid format for vehicle registration provided');
                 break;
-            case "404":
-                throw new Error("404 - Vehicle not found");
+            case '404':
+                throw new Error('404 - Vehicle not found');
                 break;
-            case "500":
-                throw new Error("500 - DVLA database system error");
+            case '500':
+                throw new Error('500 - DVLA database system error');
                 //what to do here? - create temporary reservation?
                 break;
-            case "503":
-                throw new Error("503 - DVLA system down for maintenance");
+            case '503':
+                throw new Error('503 - DVLA system down for maintenance');
                 //what to do here? - create temporary reservation?
                 break;
         }
     }
-    else if (finalUserData.taxStatus == "SORN" || finalUserData.motStatus == "Not valid") {
-        throw new Error("This vehicle is not allowed to be driven in the UK and therefore a reservation cannot be made for this vehicle");
+    else if (finalUserData.taxStatus == 'SORN' ||
+        finalUserData.motStatus == 'Not valid') {
+        throw new Error('This vehicle is not allowed to be driven in the UK and therefore a reservation cannot be made for this vehicle');
     }
     let electricFuel;
-    if (finalUserData.fuelType == "ELECTRICITY" || finalUserData.fuelType == "HYBRID ELECTRIC") {
+    if (finalUserData.fuelType == 'ELECTRICITY' ||
+        finalUserData.fuelType == 'HYBRID ELECTRIC') {
         electricFuel = true;
     }
     else {
@@ -35,32 +37,37 @@ function getVehicleData( /*vehicleRegistrationForSearch: string*/) {
     }
     let vehicleType;
     switch (finalUserData.wheelplan) {
-        case "2 AXLE RIGID BODY":
-            vehicleType = "Car";
+        case '2 AXLE RIGID BODY':
+            vehicleType = 'Car';
             break;
-        case "3 WHEEL":
-            vehicleType = "Tricycle";
+        case '3 WHEEL':
+            vehicleType = 'Tricycle';
             break;
-        case "2 WHEEL":
-            vehicleType = "Motorbike";
+        case '2 WHEEL':
+            vehicleType = 'Motorbike';
             break;
-        case "3 AXLE RIGID BODY":
-            vehicleType = "Motorhome/Caravan";
+        case '3 AXLE RIGID BODY':
+            vehicleType = 'Motorhome/Caravan';
             break;
-        case "MULTI-AXLE RIGID":
-        case "2 AXLE & ARTIC":
-        case "3 AXLE & ARTIC":
-        case "MULTI-AXLE & ARTIC":
-        case "CRAWLER NON-STANDARD":
-            vehicleType = "Lorry";
+        case 'MULTI-AXLE RIGID':
+        case '2 AXLE & ARTIC':
+        case '3 AXLE & ARTIC':
+        case 'MULTI-AXLE & ARTIC':
+        case 'CRAWLER NON-STANDARD':
+            vehicleType = 'Lorry';
             break;
         default:
-            vehicleType = "Unknown";
+            vehicleType = 'Unknown';
             break;
     }
     const vehicleColour = finalUserData.colour;
     const vehicleMake = finalUserData.make;
-    const vehicleData = [vehicleMake, vehicleColour, vehicleType, electricFuel];
+    const vehicleData = [
+        vehicleMake,
+        vehicleColour,
+        vehicleType,
+        electricFuel
+    ];
     return vehicleData;
 }
 exports.getVehicleData = getVehicleData;

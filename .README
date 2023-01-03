@@ -71,5 +71,3 @@ To do
     - reservation updated date/time
     - discount percent (for calculating price - if they're on a payment plan this can be 100)
     - price
-
-- Error handling from API responses

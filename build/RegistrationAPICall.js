@@ -11,11 +11,11 @@ function RegistrationAPICall(vehicleRegistration) {
         path: '/vehicle-enquiry/v1/vehicles',
         headers: {
             'x-api-key': APItoken.token,
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
-        maxRedirects: 20,
+        maxRedirects: 20
     };
-    var req = https.request(options, function (res) {
+    const req = https.request(options, function (res) {
         const chunks = [];
         res.on('data', function (chunk) {
             chunks.push(chunk);
