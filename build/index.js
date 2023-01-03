@@ -5,44 +5,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const stanUnoccDirector_1 = __importDefault(require("./Classes/stanUnoccDirector"));
 const UserReservationRequest_1 = require("./Classes/UserReservationRequest");
-const getVehicleData_1 = require("./getVehicleData");
-const RegistrationAPICall_1 = require("./RegistrationAPICall");
-const ReservationRequestChecker_1 = require("./ReservationRequestChecker");
+const reservationCheck_1 = require("./reservationCheck");
 const fs = require('fs');
 //*****Data Creation*****/
 //createSpots();
 //console.log("arrays created");
 //*****Request comes in*****/
-//const vehicleReg: string = 'WF58 YAX';
-const vehicleReg = 'WV60 SXX';
+const userID = 1; // add this into class - also create new user class
+//const vehicleReg: string = 'WF58 YAX'; // Skoda Fabia
+//const vehicleReg: string = 'WJ21 MGZ'; //Mum's hybrid toyota
+const vehicleReg = 'WJ55 CXZ'; //Diesel white fiat motorhome
+//const vehicleReg: string = 'LB69 VRE'; // Tesla Car
+//const vehicleReg: string = 'M4 OUW'; // Petrol BMW Car
+//const vehicleReg: string = 'WV13 UJO'; // Diesel Renault (think this is a van)
+//const vehicleReg: string = 'N530 EJC'; // Becky's Nissan SORN
+//const vehicleReg: string = 'S694 SAD'; //Vehicle not found
+//const vehicleReg: string = 'M326 MHM'; // Land rover 404
+//const vehicleReg: string = 'LP10 CXH'; // Diesel Citroen (think this is a van)
+//const vehicleReg: string = 'WV60 SXX'; // Honda CBF (SORN)
+//const vehicleReg: string = 'LP156 IOU'; // Too long registration
 const resStart = new Date(2022, 12, 7, 12, 0, 0, 0);
 const resEnd = new Date(2022, 12, 7, 14, 0, 0, 0);
 const elecRequired = false;
 const covRequired = false;
 const valRequired = false;
 const SpecificLocationSearch = 'Bristol';
-const reservationRequest = new UserReservationRequest_1.UserReservationRequest(vehicleReg, resStart, resEnd, elecRequired, covRequired, valRequired, SpecificLocationSearch);
 //*****Request is processed*****/
-//first grab the registration and pass it to the registration api to get make/model
-const vehicleRegistrationForSearch = reservationRequest.vehicleRegistration;
-//input into apiCall function
-(0, RegistrationAPICall_1.RegistrationAPICall)(vehicleRegistrationForSearch); //call the api and pass in the reg
-let vehicleData;
-setTimeout(() => {
-    vehicleData = (0, getVehicleData_1.getVehicleData)();
-    console.log(vehicleData);
-    const response = (0, ReservationRequestChecker_1.ReservationRequestChecker)(reservationRequest, vehicleData);
-    if (response == false) {
-        //do nothing - proceed with code
-    }
-    else {
-        console.log(response.toString());
-        //await response from user about altering the reservation request
-    }
-}, 500);
-//const vehicleData = getVehicleData(vehicleRegistrationForSearch); //parse the json and return relevant details
-//console.log(vehicleData);
-//Check whether user has input data correctly
+const reservationRequest = new UserReservationRequest_1.UserReservationRequest(userID, vehicleReg, resStart, resEnd, elecRequired, covRequired, valRequired, SpecificLocationSearch);
+(0, reservationCheck_1.reservationCheck)(reservationRequest, (data) => {
+    console.log(data);
+});
 //*****Director is selected*****/
 const StandardFound = stanUnoccDirector_1.default.construct();
 //*****Request sent back to user*****/

@@ -3,11 +3,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getVehicleData = void 0;
 const fs = require('fs');
 function getVehicleData( /*vehicleRegistrationForSearch: string*/) {
-    //RegistrationAPICall(vehicleRegistrationForSearch);
     const rawUserData = fs.readFileSync('userReg.json');
     const finalUserData = JSON.parse(rawUserData);
+    if (finalUserData.hasOwnProperty("errors")) {
+        switch (finalUserData.errors[0].status) {
+            case "400":
+                throw new Error("400 - Invalid format for vehicle registration provided");
+                break;
+            case "404":
+                throw new Error("404 - Vehicle not found");
+                break;
+            case "500":
+                throw new Error("500 - DVLA database system error");
+                //what to do here? - create temporary reservation?
+                break;
+            case "503":
+                throw new Error("503 - DVLA system down for maintenance");
+                //what to do here? - create temporary reservation?
+                break;
+        }
+    }
+    else if (finalUserData.taxStatus == "SORN" || finalUserData.motStatus == "Not valid") {
+        throw new Error("This vehicle is not allowed to be driven in the UK and therefore a reservation cannot be made for this vehicle");
+    }
     let electricFuel;
-    if (finalUserData.fuelType == "ELECTRICITY") {
+    if (finalUserData.fuelType == "ELECTRICITY" || finalUserData.fuelType == "HYBRID ELECTRIC") {
         electricFuel = true;
     }
     else {

@@ -25,7 +25,7 @@ export function RegistrationAPICall(
 
         res.on('end', function(chunk: any) {
             const body = Buffer.concat(chunks).toString();
-            
+            //console.log(body);
             fs.writeFileSync('userReg.json', body, (err: any) => {
                 if (err) throw err;
             });

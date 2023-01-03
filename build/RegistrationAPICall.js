@@ -22,6 +22,7 @@ function RegistrationAPICall(vehicleRegistration) {
         });
         res.on('end', function (chunk) {
             const body = Buffer.concat(chunks).toString();
+            //console.log(body);
             fs.writeFileSync('userReg.json', body, (err) => {
                 if (err)
                     throw err;

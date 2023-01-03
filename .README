@@ -19,45 +19,57 @@ Shit I'm using
       the number of single quotes
     - printWidth - set to 80 specifies that the printer will wrap any lines that exceed 80 characters
 
-const RenaultTraficPassenger: [string, boolean, number, number , number] = [ //model,electric,height,weight,length
-"Trafic Passenger",
-false,
-1973,
-1956,
-5080
-];
-const RenaultMeganeETech: [string, boolean, number, number, number] = [
-"Megane E-Tech",
-true,
-1505,
-1860,
-4199
-];
-const RenaultZoeETech: [string, boolean, number, number, number] = [
-"Zoe E-Tech",
-true,
-1562,
-1787,
-4087
-];
-const RenaultClio: [string, boolean, number, number, number] = [
-"Clio",
-true,
-1440,
-1798,
-4050
-];
-const RenaultCaptur: [string, boolean, number, number, number] = [
-"Captur",
-true,
-1576,
-2003,
-4227
-];
-const RenaultArkana: [string, boolean, number, number, number] = [
-"Arkana",
-true,
-1576,
-2034,
-4568
-];
+To do
+
+- Build user class
+
+  - first name
+  - last name
+  - user ID
+  - email
+  - phone
+  - address
+  - password hash
+  - is_active
+  - user created (timestamp)
+  - user updated (timestamp)
+  - payment plan ID
+  - reservations (array of reservation IDs)
+  - vehicles (array of vehicle registrations)
+
+- Build payment plan class
+
+  - payment plan type (no plan / weekly / monthly / annually)
+  - plan status (active/cancelled/lapsed)
+  - plan start date
+  - plan end date
+  - plan price
+  - plan created (timestamp)
+  - plan updated (timestamp)
+  - user ID
+  - vehicle registration
+
+- Build reservation classes
+
+  - revamp spots so that they no longer have an occupied or reserved indicator
+  - create occupied spot class
+    - spot ID
+    - reservation ID
+    - price
+  - create reserved spot class
+    - ID
+    - spot ID
+    - reservation ID
+    - price
+  - reservation class
+    - ID
+    - user ID
+    - spot ID
+    - start date/time
+    - end date/time
+    - reservation creation date/time
+    - reservation updated date/time
+    - discount percent (for calculating price - if they're on a payment plan this can be 100)
+    - price
+
+- Error handling from API responses
