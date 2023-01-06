@@ -5,7 +5,7 @@ const baseParkingBay_1 = require("../Classes/baseParkingBay");
 function createBays(SetLocation) {
     let baysArr = new Array(100);
     const fs = require('fs');
-    let uidRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/uid.json');
+    let uidRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/bayUID.json');
     const uidFinalFile = JSON.parse(uidRawFile);
     let lastUID = uidFinalFile.lastID;
     let letter = 0;
@@ -39,7 +39,7 @@ function createBays(SetLocation) {
         console.log('Data created');
     });
     let finalUID = "{\"lastID\":" + lastUID + "}";
-    fs.writeFile('../cars-so-many-cars/src/Arrays/uid.json', finalUID, (err) => {
+    fs.writeFile('../cars-so-many-cars/src/Arrays/bayUID.json', finalUID, (err) => {
         if (err)
             throw err;
         console.log('Data created');

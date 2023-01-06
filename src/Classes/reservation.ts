@@ -1,10 +1,12 @@
+import { Interval } from "date-fns";
+
 export class reservation {
     private _UID: number;
     private _bayUID: number;
     private _userUID: number;
     private _vehicle: string;
-    private _reservationStartDateTime: Date;
-    private _reservationEndDateTime: Date;
+    private _reservationInterval: Interval;
+    //private _reservationEndDateTime: Date;
     private _reservationCreationTS: Date;
     private _reservationUpdateTS: Date;
     private _discountPercent: number;
@@ -15,8 +17,8 @@ export class reservation {
         bayUID: number,
         userUID: number,
         vehicle: string,
-        resStart: Date,
-        resEnd: Date,
+        resInterval: Interval,
+        //resEnd: Date,
         resCreate: Date,
         resUpdate: Date,
         discount: number,
@@ -26,8 +28,8 @@ export class reservation {
         this._bayUID = bayUID;
         this._userUID = userUID;
         this._vehicle = vehicle;
-        this._reservationStartDateTime = resStart;
-        this._reservationEndDateTime = resEnd;
+        this._reservationInterval = resInterval;
+        //this._reservationEndDateTime = resEnd;
         this._reservationCreationTS = resCreate;
         this._reservationUpdateTS = resUpdate;
         this._discountPercent = discount;
@@ -57,18 +59,18 @@ export class reservation {
     public set vehicle(value: string) {
         this._vehicle = value;
     }
-    public get reservationStartDateTime(): Date {
-        return this._reservationStartDateTime;
+    public get reservationInterval(): Interval {
+        return this._reservationInterval;
     }
-    public set reservationStartDateTime(value: Date) {
-        this._reservationStartDateTime = value;
+    public set reservationInterval(value: Interval) {
+        this._reservationInterval = value;
     }
-    public get reservationEndDateTime(): Date {
+    /*public get reservationEndDateTime(): Date {
         return this._reservationEndDateTime;
     }
     public set reservationEndDateTime(value: Date) {
         this._reservationEndDateTime = value;
-    }
+    }*/
     public get reservationCreationTS(): Date {
         return this._reservationCreationTS;
     }

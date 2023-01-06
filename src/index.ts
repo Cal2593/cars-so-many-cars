@@ -6,8 +6,9 @@ import { UserReservationRequest } from './Classes/UserReservationRequest';
 import { reservationCheck } from './reservationCheck';
 import { scraper } from './scraper';
 import { cleanser } from './cleanser';
+import { createMassReservations } from './Arrays/createMassReservations';
 
-let interaction: string = "Data Creation";
+let interaction: string = "Create Mass";
 
 if(interaction == "Data Creation"){
   /*****Data Creation*****/
@@ -97,6 +98,8 @@ if(interaction == "Data Creation"){
   }
 }else if(interaction == "Cleanse"){
   cleanser();
+}else if(interaction == "Create Mass"){
+  createMassReservations(5);
 };
 
 

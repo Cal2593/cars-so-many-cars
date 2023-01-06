@@ -18,6 +18,7 @@ Shit I'm using
     - singleQuote - set to true means that Prettier will prefer single quotes instead of double quotes unless the number of double-quotes outweighs
       the number of single quotes
     - printWidth - set to 80 specifies that the printer will wrap any lines that exceed 80 characters
+- date-fns for easier manipulation of dates
 
 To do
 

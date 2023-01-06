@@ -9,7 +9,8 @@ const UserReservationRequest_1 = require("./Classes/UserReservationRequest");
 const reservationCheck_1 = require("./reservationCheck");
 const scraper_1 = require("./scraper");
 const cleanser_1 = require("./cleanser");
-let interaction = "Data Creation";
+const createMassReservations_1 = require("./Arrays/createMassReservations");
+let interaction = "Create Mass";
 if (interaction == "Data Creation") {
     /*****Data Creation*****/
     (0, createBays_1.createBays)('Gloucester');
@@ -94,6 +95,9 @@ else if (interaction == "Scrape") {
 }
 else if (interaction == "Cleanse") {
     (0, cleanser_1.cleanser)();
+}
+else if (interaction == "Create Mass") {
+    (0, createMassReservations_1.createMassReservations)(5);
 }
 ;
 //*****Request sent back to user*****/
