@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getVehicleData = void 0;
 const fs = require('fs');
-function getVehicleData( /*vehicleRegistrationForSearch: string*/) {
+function getVehicleData() {
     const rawUserData = fs.readFileSync('userReg.json');
     const finalUserData = JSON.parse(rawUserData);
     if (finalUserData.hasOwnProperty('errors')) {

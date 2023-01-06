@@ -2,19 +2,26 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.baseParkingBay = void 0;
 class baseParkingBay {
-    constructor(ID, Type, Location, covering, electric, valet) {
-        this._ID = ID;
+    constructor(UID, Reference, Type, Location, covering, electric, valet) {
+        this._UID = UID;
+        this._Reference = Reference;
         this._Type = Type;
         this._Location = Location;
         this._covering = covering;
         this._electric = electric;
         this._valet = valet;
     }
-    get ID() {
-        return this._ID;
+    get UID() {
+        return this._UID;
     }
-    set ID(value) {
-        this._ID = value;
+    set UID(value) {
+        this._UID = value;
+    }
+    get Reference() {
+        return this._Reference;
+    }
+    set Reference(value) {
+        this._Reference = value;
     }
     get Type() {
         return this._Type;

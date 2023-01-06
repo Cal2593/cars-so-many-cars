@@ -53,18 +53,20 @@ To do
 
   - revamp spots so that they no longer have an occupied or reserved indicator
   - create occupied spot class
-    - spot ID
-    - reservation ID
+    - UID
+    - spot UID - foreign key
+    - reservation UID
     - price
   - create reserved spot class
-    - ID
-    - spot ID
-    - reservation ID
+    - UID
+    - spot UID
+    - reservation UID
     - price
   - reservation class
-    - ID
-    - user ID
-    - spot ID
+    - UID
+    - spot UID
+    - user UID
+    - vehicle registration
     - start date/time
     - end date/time
     - reservation creation date/time

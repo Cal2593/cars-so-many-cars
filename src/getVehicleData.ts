@@ -1,7 +1,7 @@
 import { RegistrationAPICall } from './RegistrationAPICall';
 const fs = require('fs');
 
-export function getVehicleData(/*vehicleRegistrationForSearch: string*/) {
+export function getVehicleData() {
   const rawUserData = fs.readFileSync('userReg.json');
   const finalUserData = JSON.parse(rawUserData);
   if (finalUserData.hasOwnProperty('errors')) {

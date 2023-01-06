@@ -1,5 +1,6 @@
 export class baseParkingBay {
-    private _ID: string;
+    private _UID: number;
+    private _Reference: string;
     private _Type: string;
     private _Location: string;
     private _covering: boolean;
@@ -7,25 +8,33 @@ export class baseParkingBay {
     private _valet: boolean;
 
     constructor(
-        ID: string,
+        UID: number,
+        Reference: string,
         Type: string,
         Location: string,
         covering: boolean,
         electric: boolean,
-        valet: boolean,
+        valet: boolean
     ) {
-        this._ID = ID;
+        this._UID = UID;
+        this._Reference = Reference;
         this._Type = Type;
         this._Location = Location;
         this._covering = covering;
         this._electric = electric;
         this._valet = valet;
     }
-    public get ID(): string {
-        return this._ID;
+    public get UID(): number {
+        return this._UID;
     }
-    public set ID(value: string) {
-        this._ID = value;
+    public set UID(value: number) {
+        this._UID = value;
+    }
+    public get Reference(): string {
+        return this._Reference;
+    }
+    public set Reference(value: string) {
+        this._Reference = value;
     }
     public get Type(): string {
         return this._Type;

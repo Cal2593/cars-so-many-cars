@@ -2,11 +2,18 @@ import { baseParkingBay } from '../Classes/baseParkingBay';
 
 export function createBays(SetLocation:string) {
     let baysArr: baseParkingBay[] = new Array(100);
+
+    const fs = require('fs');
+    let uidRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/bayUID.json');
+    const uidFinalFile = JSON.parse(uidRawFile);
+
+    let lastUID: number = uidFinalFile.lastID;
     let letter = 0;
     let count = 0;
     for (let i = 0; i <= 99; i++){
         let bayNum: number = count+1;
-        let ID: string = String.fromCharCode(65 + letter)+bayNum;
+        let UID: number = lastUID+1;
+        let ref: string = String.fromCharCode(65 + letter)+bayNum;
         let loc: string = SetLocation;
         let type: string = typer(SetLocation,i);
         let cov: boolean = SetCovering(SetLocation,i);
@@ -14,7 +21,8 @@ export function createBays(SetLocation:string) {
         let valet: boolean = SetValet(type);
 
         let bay: baseParkingBay = new baseParkingBay(
-            ID,
+            UID,
+            ref,
             type,
             loc,
             cov,
@@ -30,13 +38,18 @@ export function createBays(SetLocation:string) {
         if(count==0){
             letter++;
         }
-        
+        lastUID = UID;
         baysArr[i] = bay;
     }
     const creation: string = JSON.stringify(baysArr, null, 2);
 
-    const fs = require('fs');
     fs.writeFile('../cars-so-many-cars/src/Arrays/'+SetLocation+'Bays.json',creation, (err:any) => {
+        if (err) throw err;
+        console.log('Data created');
+    })
+
+    let finalUID: string = "{\"lastID\":"+lastUID+"}";
+    fs.writeFile('../cars-so-many-cars/src/Arrays/bayUID.json',finalUID, (err:any) => {
         if (err) throw err;
         console.log('Data created');
     })
