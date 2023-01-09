@@ -1,0 +1,44 @@
+[
+  {
+    "_UID": 1,
+    "_bayUID": 139,
+    "_reservationUID": 180,
+    "_occupationEndDateTime": "2023-01-09T20:00:00.000Z"
+  },
+  {
+    "_UID": 2,
+    "_bayUID": 196,
+    "_reservationUID": 292,
+    "_occupationEndDateTime": "2023-01-09T19:00:00.000Z"
+  },
+  {
+    "_UID": 3,
+    "_bayUID": 130,
+    "_reservationUID": 556,
+    "_occupationEndDateTime": "2023-01-09T18:00:00.000Z"
+  },
+  {
+    "_UID": 4,
+    "_bayUID": 175,
+    "_reservationUID": 817,
+    "_occupationEndDateTime": "2023-01-09T17:00:00.000Z"
+  },
+  {
+    "_UID": 5,
+    "_bayUID": 156,
+    "_reservationUID": 855,
+    "_occupationEndDateTime": "2023-01-09T19:00:00.000Z"
+  },
+  {
+    "_UID": 6,
+    "_bayUID": 183,
+    "_reservationUID": 856,
+    "_occupationEndDateTime": "2023-01-09T18:00:00.000Z"
+  },
+  {
+    "_UID": 7,
+    "_bayUID": 129,
+    "_reservationUID": 929,
+    "_occupationEndDateTime": "2023-01-09T19:00:00.000Z"
+  }
+]

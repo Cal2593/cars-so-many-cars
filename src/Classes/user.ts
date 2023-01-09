@@ -13,7 +13,7 @@ export class user{
     private _paymentPlan: string;
     private _vehicles: string[];
     private _password: string;
-    private _reservations: reservation[];
+    private _reservations: number[];
 
     constructor(
         UID: number,
@@ -28,7 +28,7 @@ export class user{
         paymentPlan: string,
         vehicles: string[],
         password: string,
-        reservations: reservation[]
+        reservations: number[]
     ){
         this._UID = UID;
         this._firstName = firstName;
@@ -105,10 +105,10 @@ export class user{
     public set paymentPlan(value: string) {
         this._paymentPlan = value;
     }
-    public get reservations(): reservation[] {
+    public get reservations(): number[] {
         return this._reservations;
     }
-    public set reservations(value: reservation[]) {
+    public set reservations(value: number[]) {
         this._reservations = value;
     }
     public get vehicles(): string[] {

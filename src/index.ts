@@ -100,7 +100,7 @@ if(interaction == "Data Creation"){
 }else if(interaction == "Cleanse"){
   cleanser();
 }else if(interaction == "Create Mass"){
-  createMassReservations(5);
+  createMassReservations(1000);
 }else if(interaction == "Create Users"){
   createUsers();
 };

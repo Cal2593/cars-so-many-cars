@@ -98,7 +98,7 @@ else if (interaction == "Cleanse") {
     (0, cleanser_1.cleanser)();
 }
 else if (interaction == "Create Mass") {
-    (0, createMassReservations_1.createMassReservations)(5);
+    (0, createMassReservations_1.createMassReservations)(1000);
 }
 else if (interaction == "Create Users") {
     (0, createUsers_1.createUsers)();

@@ -42,26 +42,28 @@ export function createMassReservations(numToCreate:number){
         let bayUID:number = bayFinalFile[a]._UID;
 
         a = Math.floor(Math.random()*usersFinalFile.length)
-        let UUID: number = a-1;
+        let record: number = a;
 
         let use: user = new user(
-            usersFinalFile[UUID]._UID,
-            usersFinalFile[UUID]._firstName,
-            usersFinalFile[UUID]._lastName,
-            usersFinalFile[UUID]._email,
-            usersFinalFile[UUID]._phone,
-            usersFinalFile[UUID]._address,
-            usersFinalFile[UUID]._isActive,
-            usersFinalFile[UUID]._userCreated,
-            usersFinalFile[UUID]._userUpdated,
-            usersFinalFile[UUID]._paymentPlan,
-            usersFinalFile[UUID]._vehicles,
-            usersFinalFile[UUID]._password,
-            usersFinalFile[UUID]._reservations
+            usersFinalFile[record]._UID,
+            usersFinalFile[record]._firstName,
+            usersFinalFile[record]._lastName,
+            usersFinalFile[record]._email,
+            usersFinalFile[record]._phone,
+            usersFinalFile[record]._address,
+            usersFinalFile[record]._isActive,
+            usersFinalFile[record]._userCreated,
+            usersFinalFile[record]._userUpdated,
+            usersFinalFile[record]._paymentPlan,
+            usersFinalFile[record]._vehicles,
+            usersFinalFile[record]._password,
+            usersFinalFile[record]._reservations
             );
 
+        let UUID: number = use.UID;
+
         let vehicle: string;
-        console.log(use);
+        
         if(use.vehicles.length>1){
             a = Math.floor(Math.random()*2);
             vehicle = use.vehicles[a];
@@ -120,6 +122,8 @@ export function createMassReservations(numToCreate:number){
         
         if (!resConflict){
             reservationsArr.push(res);
+            use.reservations.push(res.UID);
+            usersFinalFile.splice(record,1,use);
             lastUID = UID;
             
             if(isWithinInterval(new Date(),res.reservationInterval)){
@@ -149,6 +153,11 @@ export function createMassReservations(numToCreate:number){
     //console.log(reservedArr);
     let finalReservedArr: string = JSON.stringify(reservedArr,null,2);
     fs.writeFile("../cars-so-many-cars/src/Arrays/reservedBays.json",finalReservedArr, (err:any) => {
+        if(err) throw err;
+    })
+
+    let finalUserList: string = JSON.stringify(usersFinalFile,null,2);
+    fs.writeFile("../cars-so-many-cars/src/Arrays/userList.json",finalUserList, (err:any) => {
         if(err) throw err;
     })
 

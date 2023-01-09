@@ -54,7 +54,7 @@ export function createUsers(){
             nextReg = nextReg+1;
         };
         let password: string = "Password123";
-        let reservations: reservation[]=[];
+        let reservations: number[]=[];
         let person: user = new user(
             UID,
             firstName,
