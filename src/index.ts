@@ -7,6 +7,7 @@ import { reservationCheck } from './reservationCheck';
 import { scraper } from './scraper';
 import { cleanser } from './cleanser';
 import { createMassReservations } from './Arrays/createMassReservations';
+import { createUsers } from './createUsers';
 
 let interaction: string = "Create Mass";
 
@@ -100,6 +101,8 @@ if(interaction == "Data Creation"){
   cleanser();
 }else if(interaction == "Create Mass"){
   createMassReservations(5);
+}else if(interaction == "Create Users"){
+  createUsers();
 };
 
 

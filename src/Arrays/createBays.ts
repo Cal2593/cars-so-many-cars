@@ -51,7 +51,6 @@ export function createBays(SetLocation:string) {
     let finalUID: string = "{\"lastID\":"+lastUID+"}";
     fs.writeFile('../cars-so-many-cars/src/Arrays/bayUID.json',finalUID, (err:any) => {
         if (err) throw err;
-        console.log('Data created');
     })
 }
 

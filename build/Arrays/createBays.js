@@ -42,7 +42,6 @@ function createBays(SetLocation) {
     fs.writeFile('../cars-so-many-cars/src/Arrays/bayUID.json', finalUID, (err) => {
         if (err)
             throw err;
-        console.log('Data created');
     });
 }
 exports.createBays = createBays;

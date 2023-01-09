@@ -10,6 +10,7 @@ const reservationCheck_1 = require("./reservationCheck");
 const scraper_1 = require("./scraper");
 const cleanser_1 = require("./cleanser");
 const createMassReservations_1 = require("./Arrays/createMassReservations");
+const createUsers_1 = require("./createUsers");
 let interaction = "Create Mass";
 if (interaction == "Data Creation") {
     /*****Data Creation*****/
@@ -98,6 +99,9 @@ else if (interaction == "Cleanse") {
 }
 else if (interaction == "Create Mass") {
     (0, createMassReservations_1.createMassReservations)(5);
+}
+else if (interaction == "Create Users") {
+    (0, createUsers_1.createUsers)();
 }
 ;
 //*****Request sent back to user*****/
