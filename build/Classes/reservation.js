@@ -2,15 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.reservation = void 0;
 class reservation {
-    constructor(UID, bayUID, userUID, vehicle, resInterval, 
-    //resEnd: Date,
-    resCreate, resUpdate, discount, price) {
+    constructor(UID, bayUID, userUID, vehicle, resInterval, resCreate, resUpdate, discount, price) {
         this._UID = UID;
         this._bayUID = bayUID;
         this._userUID = userUID;
         this._vehicle = vehicle;
         this._reservationInterval = resInterval;
-        //this._reservationEndDateTime = resEnd;
         this._reservationCreationTS = resCreate;
         this._reservationUpdateTS = resUpdate;
         this._discountPercent = discount;
@@ -46,12 +43,6 @@ class reservation {
     set reservationInterval(value) {
         this._reservationInterval = value;
     }
-    /*public get reservationEndDateTime(): Date {
-        return this._reservationEndDateTime;
-    }
-    public set reservationEndDateTime(value: Date) {
-        this._reservationEndDateTime = value;
-    }*/
     get reservationCreationTS() {
         return this._reservationCreationTS;
     }
@@ -78,16 +69,3 @@ class reservation {
     }
 }
 exports.reservation = reservation;
-/*
-  - reservation class
-    - UID
-    - spot UID
-    - user UID
-    - vehicle registration
-    - start date/time
-    - end date/time
-    - reservation creation date/time
-    - reservation updated date/time
-    - discount percent (for calculating price - if they're on a payment plan this can be 100)
-    - price
-*/ 

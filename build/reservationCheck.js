@@ -12,7 +12,7 @@ function reservationCheck(reservationRequest, callback) {
     let data;
     setTimeout(() => {
         vehicleData = (0, getVehicleData_1.getVehicleData)();
-        //console.log(vehicleData);
+        console.log(vehicleData);
         const response = (0, ReservationRequestChecker_1.ReservationRequestChecker)(reservationRequest, vehicleData);
         let valetResponse = false;
         let coverResponse = false;
@@ -43,13 +43,13 @@ function reservationCheck(reservationRequest, callback) {
                 case 'Motorbike':
                 case 'Tricycle':
                 case 'Car':
-                    const usersValetResp = true; //pulling in actual response
+                    const usersValetResp = false; //pulling in actual response
                     const usersCoverResp = false; //pulling in actual response
-                    const usersElecResp = false; //pulling in actual response
+                    const usersElecResp = true; //pulling in actual response
                     if (usersValetResp) {
                         valetResponse = true;
                         coverResponse = true;
-                        elecResponse = usersElecResp;
+                        elecResponse = false;
                     }
                     else if (!usersValetResp) {
                         valetResponse = false;

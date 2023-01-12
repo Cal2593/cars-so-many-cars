@@ -455,7 +455,7 @@
     "_Type": "Accessible",
     "_Location": "Bristol",
     "_covering": true,
-    "_electric": false,
+    "_electric": true,
     "_valet": false
   },
   {
@@ -464,7 +464,7 @@
     "_Type": "Accessible",
     "_Location": "Bristol",
     "_covering": true,
-    "_electric": false,
+    "_electric": true,
     "_valet": false
   },
   {
@@ -473,7 +473,7 @@
     "_Type": "Accessible",
     "_Location": "Bristol",
     "_covering": true,
-    "_electric": false,
+    "_electric": true,
     "_valet": false
   },
   {
@@ -482,7 +482,7 @@
     "_Type": "Accessible",
     "_Location": "Bristol",
     "_covering": true,
-    "_electric": false,
+    "_electric": true,
     "_valet": false
   },
   {
@@ -491,7 +491,7 @@
     "_Type": "Accessible",
     "_Location": "Bristol",
     "_covering": true,
-    "_electric": false,
+    "_electric": true,
     "_valet": false
   },
   {

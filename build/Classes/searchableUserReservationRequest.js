@@ -2,12 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.searchableUserReservationRequest = void 0;
 class searchableUserReservationRequest {
-    constructor(userID, vehicleRegistration, vehicleForm, resStart, resEnd, elecRequired, covRequired, valRequired, accRequired, locationRequired) {
+    constructor(userID, vehicleRegistration, vehicleForm, resInt, elecRequired, covRequired, valRequired, accRequired, locationRequired) {
         this._userID = userID;
         this._vehicleRegistration = vehicleRegistration;
         this._vehicleForm = vehicleForm;
-        this._reservationStartDateTime = resStart;
-        this._reservationEndDateTime = resEnd;
+        this._reservationIntervalDateTime = resInt;
         this._electricChargingRequired = elecRequired;
         this._coveredSpotRequired = covRequired;
         this._valetSpotRequired = valRequired;
@@ -32,17 +31,11 @@ class searchableUserReservationRequest {
     set vehicleForm(value) {
         this._vehicleForm = value;
     }
-    get reservationStartDateTime() {
-        return this._reservationStartDateTime;
+    get reservationIntervalDateTime() {
+        return this._reservationIntervalDateTime;
     }
-    set reservationStartDateTime(value) {
-        this._reservationStartDateTime = value;
-    }
-    get reservationEndDateTime() {
-        return this._reservationEndDateTime;
-    }
-    set reservationEndDateTime(value) {
-        this._reservationEndDateTime = value;
+    set reservationIntervalDateTime(value) {
+        this._reservationIntervalDateTime = value;
     }
     get electricChargingRequired() {
         return this._electricChargingRequired;

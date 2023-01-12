@@ -97,40 +97,40 @@ function createMassReservations(numToCreate) {
     }
     //console.log(reservationsArr); //write to file here
     let finalReservationsArr = JSON.stringify(reservationsArr, null, 2);
-    fs.writeFile("../cars-so-many-cars/src/Arrays/reservations.json", finalReservationsArr, (err) => {
+    fs.writeFileSync("../cars-so-many-cars/src/Arrays/reservations.json", finalReservationsArr, (err) => {
         if (err)
             throw err;
     });
     //console.log(occupiedArr);
     let finalOccupiedArr = JSON.stringify(occupiedArr, null, 2);
-    fs.writeFile("../cars-so-many-cars/src/Arrays/occupiedBays.json", finalOccupiedArr, (err) => {
+    fs.writeFileSync("../cars-so-many-cars/src/Arrays/occupiedBays.json", finalOccupiedArr, (err) => {
         if (err)
             throw err;
     });
     //console.log(reservedArr);
     let finalReservedArr = JSON.stringify(reservedArr, null, 2);
-    fs.writeFile("../cars-so-many-cars/src/Arrays/reservedBays.json", finalReservedArr, (err) => {
+    fs.writeFileSync("../cars-so-many-cars/src/Arrays/reservedBays.json", finalReservedArr, (err) => {
         if (err)
             throw err;
     });
     let finalUserList = JSON.stringify(usersFinalFile, null, 2);
-    fs.writeFile("../cars-so-many-cars/src/Arrays/userList.json", finalUserList, (err) => {
+    fs.writeFileSync("../cars-so-many-cars/src/Arrays/userList.json", finalUserList, (err) => {
         if (err)
             throw err;
     });
     //assign UIDs into UID files
     let finalUID = "{\"lastID\":" + lastUID + "}";
-    fs.writeFile('../cars-so-many-cars/src/Arrays/reservationUID.json', finalUID, (err) => {
+    fs.writeFileSync('../cars-so-many-cars/src/Arrays/reservationUID.json', finalUID, (err) => {
         if (err)
             throw err;
     });
     let finalresUID = "{\"lastID\":" + lastresUID + "}";
-    fs.writeFile('../cars-so-many-cars/src/Arrays/reservationUID.json', finalresUID, (err) => {
+    fs.writeFileSync('../cars-so-many-cars/src/Arrays/reservedUID.json', finalresUID, (err) => {
         if (err)
             throw err;
     });
     let finaloccUID = "{\"lastID\":" + lastoccUID + "}";
-    fs.writeFile('../cars-so-many-cars/src/Arrays/reservationUID.json', finaloccUID, (err) => {
+    fs.writeFileSync('../cars-so-many-cars/src/Arrays/occupiedUID.json', finaloccUID, (err) => {
         if (err)
             throw err;
     });

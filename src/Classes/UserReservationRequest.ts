@@ -1,8 +1,7 @@
 export class UserReservationRequest {
   private _userID: number;
   private _vehicleRegistration: string;
-  private _reservationStartDateTime: Date;
-  private _reservationEndDateTime: Date;
+  private _reservationIntervalDateTime: Interval;
   private _electricChargingRequired: boolean;
   private _coveredSpotRequired: boolean;
   private _valetSpotRequired: boolean;
@@ -12,8 +11,7 @@ export class UserReservationRequest {
   constructor(
     userID: number,
     vehicleRegistration: string,
-    resStart: Date,
-    resEnd: Date,
+    resInt: Interval,
     elecRequired: boolean,
     covRequired: boolean,
     valRequired: boolean,
@@ -22,8 +20,7 @@ export class UserReservationRequest {
   ) {
     this._userID = userID;
     this._vehicleRegistration = vehicleRegistration;
-    this._reservationStartDateTime = resStart;
-    this._reservationEndDateTime = resEnd;
+    this._reservationIntervalDateTime = resInt;
     this._electricChargingRequired = elecRequired;
     this._coveredSpotRequired = covRequired;
     this._valetSpotRequired = valRequired;
@@ -37,11 +34,8 @@ export class UserReservationRequest {
   public get vehicleRegistration(): string {
     return this._vehicleRegistration;
   }
-  public get reservationStartDateTime(): Date {
-    return this._reservationStartDateTime;
-  }
-  public get reservationEndDateTime(): Date {
-    return this._reservationEndDateTime;
+  public get reservationIntervalDateTime(): Interval {
+    return this._reservationIntervalDateTime;
   }
   public get electricChargingRequired(): boolean {
     return this._electricChargingRequired;

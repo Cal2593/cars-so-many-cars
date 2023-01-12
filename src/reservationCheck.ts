@@ -17,7 +17,7 @@ export function reservationCheck(
   let data: searchableUserReservationRequest;
   setTimeout(() => {
     vehicleData = getVehicleData();
-    //console.log(vehicleData);
+    console.log(vehicleData);
     const response: boolean | string | string[] = ReservationRequestChecker(
       reservationRequest,
       vehicleData
@@ -58,13 +58,13 @@ export function reservationCheck(
         case 'Motorbike':
         case 'Tricycle':
         case 'Car':
-          const usersValetResp = true; //pulling in actual response
+          const usersValetResp = false; //pulling in actual response
           const usersCoverResp = false; //pulling in actual response
-          const usersElecResp = false; //pulling in actual response
+          const usersElecResp = true; //pulling in actual response
           if (usersValetResp) {
             valetResponse = true;
             coverResponse = true;
-            elecResponse = usersElecResp;
+            elecResponse = false;
           } else if (!usersValetResp) {
             valetResponse = false;
             if (usersElecResp) {

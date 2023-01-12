@@ -11,17 +11,22 @@ const scraper_1 = require("./scraper");
 const cleanser_1 = require("./cleanser");
 const createMassReservations_1 = require("./Arrays/createMassReservations");
 const createUsers_1 = require("./createUsers");
-let interaction = "Create Mass";
+const date_fns_1 = require("date-fns");
+const baySearch_1 = require("./baySearch");
+const occupiedReservedBaysDBRefresh_1 = require("./occupiedReservedBaysDBRefresh");
+let interaction = "Bay Search";
 if (interaction == "Data Creation") {
     /*****Data Creation*****/
     (0, createBays_1.createBays)('Gloucester');
 }
 else if (interaction == "Bay Search") {
     //*****Request comes in*****/
+    //Step 1
+    //Check user exists, if not, create user
     const userID = 1; // add this into class - also create new user class
     //const vehicleReg: string = 'WF58 YAX'; // Skoda Fabia
-    //const vehicleReg: string = 'WJ21 MGZ'; //Mum's hybrid toyota
-    const vehicleReg = 'WJ55 CXZ'; //Diesel white fiat motorhome
+    const vehicleReg = 'WJ21 MGZ'; //Mum's hybrid toyota
+    //const vehicleReg = 'WJ55 CXZ'; //Diesel white fiat motorhome
     //const vehicleReg: string = 'LB69 VRE'; // Tesla Car
     //const vehicleReg: string = 'M4 OUW'; // Petrol BMW Car
     //const vehicleReg: string = 'WV13 UJO'; // Diesel Renault (think this is a van)
@@ -31,17 +36,17 @@ else if (interaction == "Bay Search") {
     //const vehicleReg: string = 'LP10 CXH'; // Diesel Citroen (think this is a van)
     //const vehicleReg: string = 'WV60 SXX'; // Honda CBF (SORN)
     //const vehicleReg: string = 'LP156 IOU'; // Too long registration
-    const resStart = new Date(2022, 12, 7, 12, 0, 0, 0);
-    const resEnd = new Date(2022, 12, 7, 14, 0, 0, 0);
+    const resInt = { start: new Date(2023, 0, 15, 15), end: (0, date_fns_1.add)(new Date(2023, 0, 15, 15), { hours: 2 }) };
     const elecRequired = false;
     const covRequired = false;
     const valRequired = false;
     const accRequired = false;
     const SpecificLocationSearch = 'Bristol';
     //*****Request is processed*****/
-    const reservationRequest = new UserReservationRequest_1.UserReservationRequest(userID, vehicleReg, resStart, resEnd, elecRequired, covRequired, valRequired, accRequired, SpecificLocationSearch);
+    const reservationRequest = new UserReservationRequest_1.UserReservationRequest(userID, vehicleReg, resInt, elecRequired, covRequired, valRequired, accRequired, SpecificLocationSearch);
     (0, reservationCheck_1.reservationCheck)(reservationRequest, (data) => {
-        console.log(data);
+        (0, occupiedReservedBaysDBRefresh_1.occupiedReservedBaysDBRefresh)();
+        (0, baySearch_1.baySearch)(data);
     });
     //refresh db
     //Search for available Bay here.

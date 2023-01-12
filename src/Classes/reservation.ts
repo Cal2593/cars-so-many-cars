@@ -6,7 +6,6 @@ export class reservation {
     private _userUID: number;
     private _vehicle: string;
     private _reservationInterval: Interval;
-    //private _reservationEndDateTime: Date;
     private _reservationCreationTS: Date;
     private _reservationUpdateTS: Date;
     private _discountPercent: number;
@@ -18,7 +17,6 @@ export class reservation {
         userUID: number,
         vehicle: string,
         resInterval: Interval,
-        //resEnd: Date,
         resCreate: Date,
         resUpdate: Date,
         discount: number,
@@ -29,7 +27,6 @@ export class reservation {
         this._userUID = userUID;
         this._vehicle = vehicle;
         this._reservationInterval = resInterval;
-        //this._reservationEndDateTime = resEnd;
         this._reservationCreationTS = resCreate;
         this._reservationUpdateTS = resUpdate;
         this._discountPercent = discount;
@@ -65,12 +62,6 @@ export class reservation {
     public set reservationInterval(value: Interval) {
         this._reservationInterval = value;
     }
-    /*public get reservationEndDateTime(): Date {
-        return this._reservationEndDateTime;
-    }
-    public set reservationEndDateTime(value: Date) {
-        this._reservationEndDateTime = value;
-    }*/
     public get reservationCreationTS(): Date {
         return this._reservationCreationTS;
     }
@@ -96,16 +87,3 @@ export class reservation {
         this._pricePaid = value;
     }
 }
-/*
-  - reservation class
-    - UID
-    - spot UID
-    - user UID
-    - vehicle registration
-    - start date/time
-    - end date/time
-    - reservation creation date/time
-    - reservation updated date/time
-    - discount percent (for calculating price - if they're on a payment plan this can be 100)
-    - price
-*/

@@ -13018,5 +13018,33 @@
     "_reservationUpdateTS": "2023-01-09T16:17:14.459Z",
     "_discountPercent": 40,
     "_pricePaid": 3
+  },
+  {
+    "_UID": 933,
+    "_bayUID": 171,
+    "_userUID": 1,
+    "_vehicle": "WJ21 MGZ",
+    "_reservationInterval": {
+      "start": "2023-01-14T15:00:00.000Z",
+      "end": "2023-01-14T17:00:00.000Z"
+    },
+    "_reservationCreationTS": "2023-01-12T14:39:39.011Z",
+    "_reservationUpdateTS": "2023-01-12T14:39:39.011Z",
+    "_discountPercent": 20,
+    "_pricePaid": 3.2
+  },
+  {
+    "_UID": 934,
+    "_bayUID": 171,
+    "_userUID": 1,
+    "_vehicle": "WJ21 MGZ",
+    "_reservationInterval": {
+      "start": "2023-01-15T15:00:00.000Z",
+      "end": "2023-01-15T17:00:00.000Z"
+    },
+    "_reservationCreationTS": "2023-01-12T14:42:29.424Z",
+    "_reservationUpdateTS": "2023-01-12T14:42:29.424Z",
+    "_discountPercent": 20,
+    "_pricePaid": 3.2
   }
 ]

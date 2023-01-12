@@ -2,8 +2,7 @@ export class searchableUserReservationRequest {
   private _userID: number;
   private _vehicleRegistration: string;
   private _vehicleForm: string | boolean;
-  private _reservationStartDateTime: Date;
-  private _reservationEndDateTime: Date;
+  private _reservationIntervalDateTime: Interval;
   private _electricChargingRequired: boolean;
   private _coveredSpotRequired: boolean;
   private _valetSpotRequired: boolean;
@@ -14,8 +13,7 @@ export class searchableUserReservationRequest {
     userID: number,
     vehicleRegistration: string,
     vehicleForm: string | boolean,
-    resStart: Date,
-    resEnd: Date,
+    resInt: Interval,
     elecRequired: boolean,
     covRequired: boolean,
     valRequired: boolean,
@@ -25,8 +23,7 @@ export class searchableUserReservationRequest {
     this._userID = userID;
     this._vehicleRegistration = vehicleRegistration;
     this._vehicleForm = vehicleForm;
-    this._reservationStartDateTime = resStart;
-    this._reservationEndDateTime = resEnd;
+    this._reservationIntervalDateTime = resInt;
     this._electricChargingRequired = elecRequired;
     this._coveredSpotRequired = covRequired;
     this._valetSpotRequired = valRequired;
@@ -51,17 +48,11 @@ export class searchableUserReservationRequest {
   public set vehicleForm(value: string | boolean) {
     this._vehicleForm = value;
   }
-  public get reservationStartDateTime(): Date {
-    return this._reservationStartDateTime;
+  public get reservationIntervalDateTime(): Interval {
+    return this._reservationIntervalDateTime;
   }
-  public set reservationStartDateTime(value: Date) {
-    this._reservationStartDateTime = value;
-  }
-  public get reservationEndDateTime(): Date {
-    return this._reservationEndDateTime;
-  }
-  public set reservationEndDateTime(value: Date) {
-    this._reservationEndDateTime = value;
+  public set reservationIntervalDateTime(value: Interval) {
+    this._reservationIntervalDateTime = value;
   }
   public get electricChargingRequired(): boolean {
     return this._electricChargingRequired;

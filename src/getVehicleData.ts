@@ -1,4 +1,3 @@
-import { RegistrationAPICall } from './RegistrationAPICall';
 const fs = require('fs');
 
 export function getVehicleData() {
