@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setBayOccupiedStatus = void 0;
-const occupiedParkingBay_1 = require("./Classes/occupiedParkingBay");
-const fs = require('fs');
+const occupiedParkingBay_1 = require("../Classes/occupiedParkingBay");
 const toDate = require('date-fns/toDate');
 function setBayOccupiedStatus(res, lastuid) {
     let UID = lastuid + 1;

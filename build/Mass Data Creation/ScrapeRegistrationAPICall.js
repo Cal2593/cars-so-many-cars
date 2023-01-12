@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScrapeRegistrationAPICall = void 0;
 const fs = require('fs');
 const https = require('follow-redirects').https;
-const APItoken = require('../config.json');
+const APItoken = require('C:/Users/callu/Desktop/cars-so-many-cars/config.json');
 function ScrapeRegistrationAPICall(vehicleRegistration) {
     const options = {
         method: 'POST',

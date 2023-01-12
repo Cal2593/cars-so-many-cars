@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.scraper = void 0;
 const ScrapeRegistrationAPICall_1 = require("./ScrapeRegistrationAPICall");
-const fs = require('fs');
 function scraper() {
     //create memory tag and age identifier
     const a = Math.floor(Math.random() * 23);

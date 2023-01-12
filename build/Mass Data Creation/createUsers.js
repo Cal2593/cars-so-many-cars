@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createUsers = void 0;
-const usersNames_1 = require("./Arrays/usersNames");
-const user_1 = require("./Classes/user");
+const usersNames_1 = require("../Arrays/usersNames");
+const user_1 = require("../Classes/user");
 function createUsers() {
     const fs = require('fs');
     let uidRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/usersUID.json');

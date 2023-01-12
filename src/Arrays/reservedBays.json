@@ -720,15 +720,6 @@
     }
   },
   {
-    "_UID": 88,
-    "_bayUID": 183,
-    "_reservationUID": 95,
-    "_reservedInterval": {
-      "start": "2023-01-12T15:00:00.000Z",
-      "end": "2023-01-12T20:00:00.000Z"
-    }
-  },
-  {
     "_UID": 90,
     "_bayUID": 165,
     "_reservationUID": 97,
@@ -7332,15 +7323,6 @@
     "_reservedInterval": {
       "start": "2023-02-04T17:00:00.000Z",
       "end": "2023-02-04T19:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 871,
-    "_bayUID": 171,
-    "_reservationUID": 932,
-    "_reservedInterval": {
-      "start": "2023-01-12T15:00:00.000Z",
-      "end": "2023-01-12T17:00:00.000Z"
     }
   },
   {

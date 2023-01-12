@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setBayReservedStatus = void 0;
-const reservedParkingBay_1 = require("./Classes/reservedParkingBay");
-const fs = require('fs');
+const reservedParkingBay_1 = require("../Classes/reservedParkingBay");
 function setBayReservedStatus(res, lastuid) {
     let UID = lastuid + 1;
     let bayUID = res.bayUID;

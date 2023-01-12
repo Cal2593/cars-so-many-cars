@@ -4,8 +4,8 @@ exports.createMassReservations = void 0;
 const date_fns_1 = require("date-fns");
 const reservation_1 = require("../Classes/reservation");
 const user_1 = require("../Classes/user");
-const setBayOccupiedStatus_1 = require("../setBayOccupiedStatus");
-const setBayReservedStatus_1 = require("../setBayReservedStatus");
+const setBayOccupiedStatus_1 = require("./setBayOccupiedStatus");
+const setBayReservedStatus_1 = require("./setBayReservedStatus");
 function createMassReservations(numToCreate) {
     const fs = require('fs');
     const add = require('date-fns/add');

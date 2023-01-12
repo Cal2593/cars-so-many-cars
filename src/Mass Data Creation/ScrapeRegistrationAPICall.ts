@@ -1,6 +1,6 @@
 const fs = require('fs');
 const https = require('follow-redirects').https;
-const APItoken = require('../config.json');
+const APItoken = require('C:/Users/callu/Desktop/cars-so-many-cars/config.json');
 
 export function ScrapeRegistrationAPICall(vehicleRegistration: string) {
   const options = {
@@ -23,8 +23,8 @@ export function ScrapeRegistrationAPICall(vehicleRegistration: string) {
 
     res.on('end', function (chunk: any) {
       const body = Buffer.concat(chunks).toString();
-      if(!body.includes('errors')){
-        fs.appendFile('singleReg.json', body+"\n", (err: any) => {
+      if (!body.includes('errors')) {
+        fs.appendFile('singleReg.json', body + '\n', (err: any) => {
           if (err) throw err;
         });
       }
