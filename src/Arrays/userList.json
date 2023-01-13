@@ -20,7 +20,8 @@
       642,
       932,
       933,
-      934
+      934,
+      935
     ],
     "_vehicles": [
       "AW21ALB",
@@ -3001,6 +3002,25 @@
     ],
     "_vehicles": [
       "AY14VCL"
+    ],
+    "_password": "Password123"
+  },
+  {
+    "_UID": 111,
+    "_firstName": "Tom",
+    "_lastName": "Evans",
+    "_email": "tom@outlook.com",
+    "_phone": "07756951869",
+    "_address": "9 Seavale Road, Clevedon, North Somerset, BS21 7QB",
+    "_isActive": true,
+    "_userCreated": "2023-01-13T14:47:52.334Z",
+    "_userUpdated": "2023-01-13T14:47:52.334Z",
+    "_paymentPlan": "No plan",
+    "_reservations": [
+      936
+    ],
+    "_vehicles": [
+      "M4 OUW"
     ],
     "_password": "Password123"
   }

@@ -9,36 +9,35 @@ const user_1 = require("./Classes/user");
 const getUser_1 = require("./getUser");
 function createReservation(bay, resReq) {
     const fs = require('fs');
-    let reservationsRaw = fs.readFileSync('../cars-so-many-cars/src/Arrays/reservations.json');
+    const reservationsRaw = fs.readFileSync('../cars-so-many-cars/src/Arrays/reservations.json');
     const reservationsFile = JSON.parse(reservationsRaw);
-    let reservationUIDRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/reservationUID.json');
+    const reservationUIDRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/reservationUID.json');
     const reservationUIDFinalFile = JSON.parse(reservationUIDRawFile);
-    let use = (0, getUser_1.getUser)(resReq.userID);
-    let UID = reservationUIDFinalFile.lastID + 1;
-    let bayUID = bay.UID;
-    let userUID = resReq.userID;
-    let vehicle = resReq.vehicleRegistration;
-    let resInterval = resReq.reservationIntervalDateTime;
-    let resCreate = new Date();
-    let resUpdate = new Date();
+    const use = (0, getUser_1.getUser)(resReq.userID);
+    const UID = reservationUIDFinalFile.lastID + 1;
+    const bayUID = bay.UID;
+    const userUID = resReq.userID;
+    const vehicle = resReq.vehicleRegistration;
+    const resInterval = resReq.reservationIntervalDateTime;
+    const resCreate = new Date();
+    const resUpdate = new Date();
     let discount;
     switch (use.paymentPlan) {
-        case "Monthly":
+        case 'Monthly':
             discount = 20;
             break;
-        case "Annual":
+        case 'Annual':
             discount = 40;
             break;
         default:
             discount = 0;
     }
-    ;
     let pricePerHour = 0;
     switch (bay.Type) {
-        case "Lorry":
+        case 'Lorry':
             pricePerHour = 5;
             break;
-        case "MotorhomeAndCaravan":
+        case 'MotorhomeAndCaravan':
             if (resReq.electricChargingRequired) {
                 pricePerHour = 3;
             }
@@ -46,97 +45,98 @@ function createReservation(bay, resReq) {
                 pricePerHour = 2;
             }
             break;
-        case "Valet":
+        case 'Valet':
             pricePerHour = 3;
             break;
-        case "ElectricCharging":
+        case 'ElectricCharging':
             pricePerHour = 2;
             break;
-        case "Motorbike":
-        case "Accessible":
-        case "Standard":
+        case 'Motorbike':
+        case 'Accessible':
+        case 'Standard':
             pricePerHour = 1;
             break;
     }
-    let duration = (0, date_fns_1.intervalToDuration)(resReq.reservationIntervalDateTime);
-    let hours = duration.hours;
-    let minutes = duration.minutes;
-    let factor = 10 ** 2;
-    let finalMinutes = Math.round(minutes * factor) / factor;
-    let finalDuration = hours + finalMinutes;
-    let durationPrice = pricePerHour * finalDuration;
-    let finalDurationPrice = Math.round(durationPrice * factor) / factor;
-    let price = (finalDurationPrice - (finalDurationPrice * discount) / 100);
-    let res = new reservation_1.reservation(UID, bayUID, userUID, vehicle, resInterval, resCreate, resUpdate, discount, price);
-    let finalUID = "{\"lastID\":" + UID + "}";
+    const duration = (0, date_fns_1.intervalToDuration)(resReq.reservationIntervalDateTime);
+    const hours = duration.hours;
+    const minutes = duration.minutes;
+    const factor = 10 ** 2;
+    const finalMinutes = Math.round(minutes * factor) / factor;
+    const finalDuration = hours + finalMinutes;
+    const durationPrice = pricePerHour * finalDuration;
+    const finalDurationPrice = Math.round(durationPrice * factor) / factor;
+    const price = finalDurationPrice - (finalDurationPrice * discount) / 100;
+    const res = new reservation_1.reservation(UID, bayUID, userUID, vehicle, resInterval, resCreate, resUpdate, discount, price);
+    const finalUID = '{"lastID":' + UID + '}';
     fs.writeFileSync('../cars-so-many-cars/src/Arrays/reservationUID.json', finalUID, (err) => {
         if (err)
             throw err;
     });
     reservationsFile.push(res);
-    let finalReservationsFile = JSON.stringify(reservationsFile, null, 2);
+    const finalReservationsFile = JSON.stringify(reservationsFile, null, 2);
     fs.writeFileSync('../cars-so-many-cars/src/Arrays/reservations.json', finalReservationsFile, (err) => {
         if (err)
             throw err;
     });
-    let usersRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/userList.json');
+    const usersRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/userList.json');
     const usersFinalFile = JSON.parse(usersRawFile);
     let found = false;
     for (let i = 0; i < usersFinalFile.length && found == false; i++) {
-        let userRec = new user_1.user(usersFinalFile[i]._UID, usersFinalFile[i]._firstName, usersFinalFile[i]._lastName, usersFinalFile[i]._email, usersFinalFile[i]._phone, usersFinalFile[i]._address, usersFinalFile[i]._isActive, usersFinalFile[i]._userCreated, usersFinalFile[i]._userUpdated, usersFinalFile[i]._paymentPlan, usersFinalFile[i]._vehicles, usersFinalFile[i]._password, usersFinalFile[i]._reservations);
+        const userRec = new user_1.user(usersFinalFile[i]._UID, usersFinalFile[i]._firstName, usersFinalFile[i]._lastName, usersFinalFile[i]._email, usersFinalFile[i]._phone, usersFinalFile[i]._address, usersFinalFile[i]._isActive, usersFinalFile[i]._userCreated, usersFinalFile[i]._userUpdated, usersFinalFile[i]._paymentPlan, usersFinalFile[i]._vehicles, usersFinalFile[i]._password, usersFinalFile[i]._reservations);
         if (userRec.UID == resReq.userID) {
             userRec.reservations.push(res.UID);
             found = true;
         }
     }
-    let finalUserList = JSON.stringify(usersFinalFile, null, 2);
-    fs.writeFileSync("../cars-so-many-cars/src/Arrays/userList.json", finalUserList, (err) => {
+    const finalUserList = JSON.stringify(usersFinalFile, null, 2);
+    fs.writeFileSync('../cars-so-many-cars/src/Arrays/userList.json', finalUserList, (err) => {
         if (err)
             throw err;
     });
-    if ((0, date_fns_1.isWithinInterval)(new Date(), resReq.reservationIntervalDateTime) || (0, date_fns_1.isEqual)(new Date(), resReq.reservationIntervalDateTime.start)) {
+    if ((0, date_fns_1.isWithinInterval)(new Date(), resReq.reservationIntervalDateTime) ||
+        (0, date_fns_1.isEqual)(new Date(), resReq.reservationIntervalDateTime.start)) {
         //create occupied bay
-        let occupiedBaysRaw = fs.readFileSync('../cars-so-many-cars/src/Arrays/occupiedBays.json');
+        const occupiedBaysRaw = fs.readFileSync('../cars-so-many-cars/src/Arrays/occupiedBays.json');
         const occupiedBaysFile = JSON.parse(occupiedBaysRaw);
-        let occupiedUIDRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/occupiedUID.json');
+        const occupiedUIDRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/occupiedUID.json');
         const occupiedUIDFinalFile = JSON.parse(occupiedUIDRawFile);
-        let lastoccUID = occupiedUIDFinalFile.lastID + 1;
-        let occRecord = new occupiedParkingBay_1.occupiedParkingBay(lastoccUID, res.bayUID, res.UID, (0, date_fns_1.toDate)(res.reservationInterval.end));
+        const lastoccUID = occupiedUIDFinalFile.lastID + 1;
+        const occRecord = new occupiedParkingBay_1.occupiedParkingBay(lastoccUID, res.bayUID, res.UID, (0, date_fns_1.toDate)(res.reservationInterval.end));
         occupiedBaysFile.push(occRecord);
-        let finalOccupiedArr = JSON.stringify(occupiedBaysFile, null, 2);
-        fs.writeFileSync("../cars-so-many-cars/src/Arrays/occupiedBays.json", finalOccupiedArr, (err) => {
+        const finalOccupiedArr = JSON.stringify(occupiedBaysFile, null, 2);
+        fs.writeFileSync('../cars-so-many-cars/src/Arrays/occupiedBays.json', finalOccupiedArr, (err) => {
             if (err)
                 throw err;
         });
-        let finaloccUID = "{\"lastID\":" + lastoccUID + "}";
+        const finaloccUID = '{"lastID":' + lastoccUID + '}';
         fs.writeFileSync('../cars-so-many-cars/src/Arrays/occupiedUID.json', finaloccUID, (err) => {
             if (err)
                 throw err;
         });
-        console.log(occRecord.UID + " occupied UID");
+        console.log(occRecord.UID + ' occupied UID');
     }
     else {
         //create reserved bay
-        let reservedBaysRaw = fs.readFileSync('../cars-so-many-cars/src/Arrays/reservedBays.json');
+        const reservedBaysRaw = fs.readFileSync('../cars-so-many-cars/src/Arrays/reservedBays.json');
         const reservedBaysFile = JSON.parse(reservedBaysRaw);
-        let reservedUIDRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/reservedUID.json');
+        const reservedUIDRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/reservedUID.json');
         const reservedUIDFinalFile = JSON.parse(reservedUIDRawFile);
-        let lastresUID = reservedUIDFinalFile.lastID + 1;
-        let reservedRecord = new reservedParkingBay_1.reservedParkingBay(lastresUID, res.bayUID, res.UID, res.reservationInterval);
+        const lastresUID = reservedUIDFinalFile.lastID + 1;
+        const reservedRecord = new reservedParkingBay_1.reservedParkingBay(lastresUID, res.bayUID, res.UID, res.reservationInterval);
         reservedBaysFile.push(reservedRecord);
-        let finalReservedArr = JSON.stringify(reservedBaysFile, null, 2);
-        fs.writeFileSync("../cars-so-many-cars/src/Arrays/reservedBays.json", finalReservedArr, (err) => {
+        const finalReservedArr = JSON.stringify(reservedBaysFile, null, 2);
+        fs.writeFileSync('../cars-so-many-cars/src/Arrays/reservedBays.json', finalReservedArr, (err) => {
             if (err)
                 throw err;
         });
-        let finalresUID = "{\"lastID\":" + lastresUID + "}";
+        const finalresUID = '{"lastID":' + lastresUID + '}';
         fs.writeFileSync('../cars-so-many-cars/src/Arrays/reservedUID.json', finalresUID, (err) => {
             if (err)
                 throw err;
         });
-        console.log(reservedRecord.UID + " reserved UID");
+        console.log(reservedRecord.UID + ' reserved UID');
     }
-    console.log(res.UID + " reservation UID");
-    console.log(res.bayUID + " reservation bay");
+    console.log(res.UID + ' reservation UID');
+    console.log(res.bayUID + ' reservation bay');
 }
 exports.createReservation = createReservation;

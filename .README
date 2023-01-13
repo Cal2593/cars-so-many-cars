@@ -19,6 +19,7 @@ Shit I'm using
       the number of single quotes
     - printWidth - set to 80 specifies that the printer will wrap any lines that exceed 80 characters
 - date-fns for easier manipulation of dates
+- bcrypt for password salting and hashing
 
 To do
 

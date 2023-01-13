@@ -3,23 +3,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createBays = void 0;
 const baseParkingBay_1 = require("../Classes/baseParkingBay");
 function createBays(SetLocation) {
-    let baysArr = new Array(100);
+    const baysArr = new Array(100);
     const fs = require('fs');
-    let uidRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/bayUID.json');
+    const uidRawFile = fs.readFileSync('../cars-so-many-cars/src/Arrays/bayUID.json');
     const uidFinalFile = JSON.parse(uidRawFile);
     let lastUID = uidFinalFile.lastID;
     let letter = 0;
     let count = 0;
     for (let i = 0; i <= 99; i++) {
-        let bayNum = count + 1;
-        let UID = lastUID + 1;
-        let ref = String.fromCharCode(65 + letter) + bayNum;
-        let loc = SetLocation;
-        let type = typer(SetLocation, i);
-        let cov = SetCovering(SetLocation, i);
-        let elec = SetElectric(SetLocation, i, type);
-        let valet = SetValet(type);
-        let bay = new baseParkingBay_1.baseParkingBay(UID, ref, type, loc, cov, elec, valet);
+        const bayNum = count + 1;
+        const UID = lastUID + 1;
+        const ref = String.fromCharCode(65 + letter) + bayNum;
+        const loc = SetLocation;
+        const type = typer(SetLocation, i);
+        const cov = SetCovering(SetLocation, i);
+        const elec = SetElectric(SetLocation, i, type);
+        const valet = SetValet(type);
+        const bay = new baseParkingBay_1.baseParkingBay(UID, ref, type, loc, cov, elec, valet);
         if (count < 9) {
             count++;
         }
@@ -38,7 +38,7 @@ function createBays(SetLocation) {
             throw err;
         console.log('Data created');
     });
-    let finalUID = "{\"lastID\":" + lastUID + "}";
+    const finalUID = '{"lastID":' + lastUID + '}';
     fs.writeFile('../cars-so-many-cars/src/Arrays/bayUID.json', finalUID, (err) => {
         if (err)
             throw err;

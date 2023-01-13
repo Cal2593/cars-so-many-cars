@@ -9,6 +9,8 @@ import { createUsers } from './Mass Data Creation/createUsers';
 import { add } from 'date-fns';
 import { baySearch } from './baySearch';
 import { occupiedReservedBaysDBRefresh } from './occupiedReservedBaysDBRefresh';
+import { getUserFromEmail } from './getUserFromEmail';
+import { createUser } from './createUser';
 
 const interaction:string = 'Bay Search';
 
@@ -17,12 +19,10 @@ if (interaction == 'Data Creation') {
   createBays('Gloucester');
 } else if (interaction == 'Bay Search') {
   //*****Request comes in*****/
-  //Step 1
-  //Check user exists, if not, create user
 
-  const userID = 1; // add this into class - also create new user class
+  const email: string = "frankjefferson@outlook.com"
   //const vehicleReg: string = 'WF58 YAX'; // Skoda Fabia
-  const vehicleReg = 'WJ21 MGZ'; //Mum's hybrid toyota
+  //const vehicleReg: string = 'WJ21 MGZ'; //Mum's hybrid toyota
   //const vehicleReg = 'WJ55 CXZ'; //Diesel white fiat motorhome
   //const vehicleReg: string = 'LB69 VRE'; // Tesla Car
   //const vehicleReg: string = 'M4 OUW'; // Petrol BMW Car
@@ -30,18 +30,21 @@ if (interaction == 'Data Creation') {
   //const vehicleReg: string = 'N530 EJC'; // Becky's Nissan SORN
   //const vehicleReg: string = 'S694 SAD'; // Vehicle not found
   //const vehicleReg: string = 'M326 MHM'; // Land rover 404
-  //const vehicleReg: string = 'LP10 CXH'; // Diesel Citroen (think this is a van)
+  const vehicleReg: string = 'LP10 CXH'; // Diesel Citroen (think this is a van)
   //const vehicleReg: string = 'WV60 SXX'; // Honda CBF (SORN)
   //const vehicleReg: string = 'LP156 IOU'; // Too long registration
+  
+  const userID: number = getUserFromEmail(email,vehicleReg)!;
+
   const resInt: Interval = {
-    start: new Date(2023, 0, 15, 15),
-    end: add(new Date(2023, 0, 15, 15), { hours: 2 })
+    start: new Date(2023, 0, 20, 11),
+    end: add(new Date(2023, 0, 20, 11), { hours: 4 })
   };
-  const elecRequired = false;
-  const covRequired = false;
-  const valRequired = false;
-  const accRequired = false;
-  const SpecificLocationSearch = 'Bristol';
+  const elecRequired: boolean = false;
+  const covRequired: boolean = false;
+  const valRequired: boolean = false;
+  const accRequired: boolean = false;
+  const SpecificLocationSearch: string = 'Bristol';
 
   //*****Request is processed*****/
   const reservationRequest: UserReservationRequest = new UserReservationRequest(
@@ -62,11 +65,11 @@ if (interaction == 'Data Creation') {
     }
   );
 } else if (interaction == 'New User') {
-  //new user creation
-  //check if user already exists in db
-  //if they do, return to user saying user already exists
-  //if not, create user
-  //refresh db
+  const email: string = "frankjefferson@outlook.com"
+  const vehicleReg: string = 'LP10 CXH'; // Diesel Citroen (think this is a van)
+  const userID: number = createUser(email,vehicleReg);
+  console.log(userID);
+
 } else if (interaction == 'Amend User') {
   //refresh db
   //find user

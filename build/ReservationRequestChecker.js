@@ -83,7 +83,8 @@ function ReservationRequestChecker(reservationRequest, vehicleData) {
                 const newResponse = responseChecker(response);
                 FinalResponse = newResponse.slice(0, -1) + ' to your booking?';
                 if (!reservationRequest.accRequired) {
-                    FinalResponse = FinalResponse + "\nDo you require an accessible parking spot?";
+                    FinalResponse =
+                        FinalResponse + '\nDo you require an accessible parking spot?';
                 }
             }
             break;

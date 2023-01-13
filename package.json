@@ -29,6 +29,7 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "date-fns": "^2.29.3",
     "follow-redirects": "^1.15.2",
     "fs": "^0.0.1-security",

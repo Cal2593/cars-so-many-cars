@@ -23,7 +23,7 @@ function ScrapeRegistrationAPICall(vehicleRegistration) {
         res.on('end', function (chunk) {
             const body = Buffer.concat(chunks).toString();
             if (!body.includes('errors')) {
-                fs.appendFile('singleReg.json', body + "\n", (err) => {
+                fs.appendFile('singleReg.json', body + '\n', (err) => {
                     if (err)
                         throw err;
                 });

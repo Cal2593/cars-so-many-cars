@@ -13046,5 +13046,33 @@
     "_reservationUpdateTS": "2023-01-12T14:42:29.424Z",
     "_discountPercent": 20,
     "_pricePaid": 3.2
+  },
+  {
+    "_UID": 935,
+    "_bayUID": 171,
+    "_userUID": 1,
+    "_vehicle": "WF58 YAX",
+    "_reservationInterval": {
+      "start": "2023-01-20T11:00:00.000Z",
+      "end": "2023-01-20T15:00:00.000Z"
+    },
+    "_reservationCreationTS": "2023-01-13T14:46:07.818Z",
+    "_reservationUpdateTS": "2023-01-13T14:46:07.818Z",
+    "_discountPercent": 20,
+    "_pricePaid": 6.4
+  },
+  {
+    "_UID": 936,
+    "_bayUID": 172,
+    "_userUID": 111,
+    "_vehicle": "M4 OUW",
+    "_reservationInterval": {
+      "start": "2023-01-20T11:00:00.000Z",
+      "end": "2023-01-20T15:00:00.000Z"
+    },
+    "_reservationCreationTS": "2023-01-13T14:47:52.939Z",
+    "_reservationUpdateTS": "2023-01-13T14:47:52.939Z",
+    "_discountPercent": 0,
+    "_pricePaid": 8
   }
 ]
