@@ -16,28 +16,24 @@ function createUser(email, vehicle) {
     const paymentPlan = "No plan"; //Actual user response
     const vehicleReg = vehicle;
     const password = "Password123"; //Actual user response
-    const hashedPassword = bcrypt.hash(password, 10);
     const UID = usersUIDFinal.lastID + 1;
     const isActive = true;
     const userCreated = new Date();
     const userUpdated = new Date();
     const vehicles = [vehicleReg];
     const reservations = [];
-    setTimeout(() => {
-        let use = new user_1.user(UID, firstName, lastName, email, phone, address, isActive, userCreated, userUpdated, paymentPlan, vehicles, hashedPassword, reservations);
-        console.log(use);
-        usersFinal.push(use);
-        const finalUID = '{"lastID":' + UID + '}';
-        fs.writeFileSync('../cars-so-many-cars/src/Arrays/usersUID.json', finalUID, (err) => {
-            if (err)
-                throw err;
-        });
-        const finalUsersFile = JSON.stringify(usersFinal, null, 2);
-        fs.writeFileSync('../cars-so-many-cars/src/Arrays/userList.json', finalUsersFile, (err) => {
-            if (err)
-                throw err;
-        });
-        return use.UID;
-    }, 1000);
+    let use = new user_1.user(UID, firstName, lastName, email, phone, address, isActive, userCreated, userUpdated, paymentPlan, vehicles, password, reservations);
+    usersFinal.push(use);
+    const finalUID = '{"lastID":' + UID + '}';
+    fs.writeFileSync('../cars-so-many-cars/src/Arrays/usersUID.json', finalUID, (err) => {
+        if (err)
+            throw err;
+    });
+    const finalUsersFile = JSON.stringify(usersFinal, null, 2);
+    fs.writeFileSync('../cars-so-many-cars/src/Arrays/userList.json', finalUsersFile, (err) => {
+        if (err)
+            throw err;
+    });
+    return use.UID;
 }
 exports.createUser = createUser;

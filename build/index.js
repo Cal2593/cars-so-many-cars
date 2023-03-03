@@ -11,7 +11,29 @@ const date_fns_1 = require("date-fns");
 const baySearch_1 = require("./baySearch");
 const occupiedReservedBaysDBRefresh_1 = require("./occupiedReservedBaysDBRefresh");
 const getUserFromEmail_1 = require("./getUserFromEmail");
-const interaction = 'Bay Search';
+const createUser_1 = require("./createUser");
+const incomingReservation_1 = require("./incomingReservation");
+const express = require('express');
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+dotenv.config();
+const cors = require("cors");
+const app = express();
+const port = process.env.PORT;
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}), bodyParser.json());
+app.post('/', (req, res) => {
+    res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+    const userRes = (0, incomingReservation_1.incomingReservation)(req.body);
+    console.log("Back in index: " + userRes);
+    res.send('Received');
+});
+app.listen(port, () => {
+    console.log('[server]: Server is running at http://localhost:8000');
+});
+const interaction = 'Testing';
 if (interaction == 'Data Creation') {
     /*****Data Creation*****/
     (0, createBays_1.createBays)('Gloucester');
@@ -31,10 +53,7 @@ else if (interaction == 'Bay Search') {
     const vehicleReg = 'LP10 CXH'; // Diesel Citroen (think this is a van)
     //const vehicleReg: string = 'WV60 SXX'; // Honda CBF (SORN)
     //const vehicleReg: string = 'LP156 IOU'; // Too long registration
-    let userID = 0;
-    setTimeout(() => {
-        userID = (0, getUserFromEmail_1.getUserFromEmail)(email, vehicleReg);
-    }, 1000);
+    const userID = (0, getUserFromEmail_1.getUserFromEmail)(email, vehicleReg);
     const resInt = {
         start: new Date(2023, 0, 20, 11),
         end: (0, date_fns_1.add)(new Date(2023, 0, 20, 11), { hours: 4 })
@@ -52,11 +71,10 @@ else if (interaction == 'Bay Search') {
     });
 }
 else if (interaction == 'New User') {
-    //new user creation
-    //check if user already exists in db
-    //if they do, return to user saying user already exists
-    //if not, create user
-    //refresh db
+    const email = "frankjefferson@outlook.com";
+    const vehicleReg = 'LP10 CXH'; // Diesel Citroen (think this is a van)
+    const userID = (0, createUser_1.createUser)(email, vehicleReg);
+    console.log(userID);
 }
 else if (interaction == 'Amend User') {
     //refresh db

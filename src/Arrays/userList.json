@@ -3023,5 +3023,22 @@
       "M4 OUW"
     ],
     "_password": "Password123"
+  },
+  {
+    "_UID": 112,
+    "_firstName": "Frank",
+    "_lastName": "Jefferson",
+    "_email": "frankjefferson@outlook.com",
+    "_phone": "07756951869",
+    "_address": "9 Seavale Road, Clevedon, North Somerset, BS21 7QB",
+    "_isActive": true,
+    "_userCreated": "2023-02-07T14:43:08.589Z",
+    "_userUpdated": "2023-02-07T14:43:08.589Z",
+    "_paymentPlan": "No plan",
+    "_reservations": [],
+    "_vehicles": [
+      "LP10 CXH"
+    ],
+    "_password": "Password123"
   }
 ]

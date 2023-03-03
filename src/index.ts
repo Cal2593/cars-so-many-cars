@@ -11,8 +11,37 @@ import { baySearch } from './baySearch';
 import { occupiedReservedBaysDBRefresh } from './occupiedReservedBaysDBRefresh';
 import { getUserFromEmail } from './getUserFromEmail';
 import { createUser } from './createUser';
+import { incomingReservation } from './incomingReservation';
 
-const interaction:string = 'Bay Search';
+const express = require('express');
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const cors = require ("cors");
+const app = express();
+const port = process.env.PORT;
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true
+  }),
+  bodyParser.json()
+);
+
+app.post('/', (req: any ,res: any) => {
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+  const userRes: UserReservationRequest = incomingReservation(req.body);
+  res.send('Received');
+});
+
+app.listen(port, () => {
+  console.log('[server]: Server is running at http://localhost:8000');
+})
+
+const interaction:string = 'Testing';
 
 if (interaction == 'Data Creation') {
   /*****Data Creation*****/
