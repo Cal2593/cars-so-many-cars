@@ -13,6 +13,7 @@ const occupiedReservedBaysDBRefresh_1 = require("./occupiedReservedBaysDBRefresh
 const getUserFromEmail_1 = require("./getUserFromEmail");
 const createUser_1 = require("./createUser");
 const incomingReservation_1 = require("./incomingReservation");
+const decodeReservation_1 = require("./decodeReservation");
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
@@ -26,9 +27,21 @@ app.use(cors({
 }), bodyParser.json());
 app.post('/', (req, res) => {
     res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
-    const userRes = (0, incomingReservation_1.incomingReservation)(req.body);
-    console.log("Back in index: " + userRes);
-    res.send('Received');
+    console.log(req.body);
+    if (req.body.type == "Reservation Request") {
+        const userRes = (0, incomingReservation_1.incomingReservation)(req.body);
+        (0, reservationCheck_1.reservationCheck)(userRes, (data) => {
+            (0, occupiedReservedBaysDBRefresh_1.occupiedReservedBaysDBRefresh)();
+            (0, baySearch_1.baySearch)(data, (foundStatus) => {
+                (0, decodeReservation_1.decodeReservation)(foundStatus, (returnData) => {
+                    res.send(returnData);
+                });
+            });
+        });
+    }
+    else {
+        res.send('Received');
+    }
 });
 app.listen(port, () => {
     console.log('[server]: Server is running at http://localhost:8000');
@@ -65,10 +78,13 @@ else if (interaction == 'Bay Search') {
     const SpecificLocationSearch = 'Bristol';
     //*****Request is processed*****/
     const reservationRequest = new UserReservationRequest_1.UserReservationRequest(userID, vehicleReg, resInt, elecRequired, covRequired, valRequired, accRequired, SpecificLocationSearch);
-    (0, reservationCheck_1.reservationCheck)(reservationRequest, (data) => {
-        (0, occupiedReservedBaysDBRefresh_1.occupiedReservedBaysDBRefresh)();
-        (0, baySearch_1.baySearch)(data);
-    });
+    // reservationCheck(
+    //   reservationRequest,
+    //   (data: searchableUserReservationRequest) => {
+    //     occupiedReservedBaysDBRefresh();
+    //     baySearch(data);
+    //   }
+    // );
 }
 else if (interaction == 'New User') {
     const email = "frankjefferson@outlook.com";

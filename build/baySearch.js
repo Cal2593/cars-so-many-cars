@@ -7,7 +7,8 @@ const reservedParkingBay_1 = require("./Classes/reservedParkingBay");
 const reservation_1 = require("./Classes/reservation");
 const baseParkingBay_1 = require("./Classes/baseParkingBay");
 const createReservation_1 = require("./createReservation");
-function baySearch(data) {
+function baySearch(data, callback) {
+    let foundStatus;
     const fs = require('fs');
     const parseISO = require('date-fns/parseISO');
     const isSameDay = require('date-fns/isSameDay');
@@ -36,7 +37,8 @@ function baySearch(data) {
                         end: resRecordEnd
                     };
                     if (areIntervalsOverlapping(resRecordInt, data.reservationIntervalDateTime)) {
-                        console.log("You can't book this vehicle in at the chosen time as it already has a reservation for the given time."); //return this to user
+                        //foundStatus = "This vehicle already has a reservation for the given date/time"
+                        //callback(foundStatus);
                         throw new Error("Vehicle can't be in two bays at the same time. This vehicle is booked at the same time in bay " +
                             reservationRecord.bayUID +
                             ' reservation UID ' +
@@ -155,34 +157,40 @@ function baySearch(data) {
                 switch (searchBayType) {
                     case 'Standard':
                         if (data.coveredSpotRequired == bay.covering) {
-                            //use this bay
-                            console.log(bay);
-                            (0, createReservation_1.createReservation)(bay, data);
-                            found = true;
+                            (0, createReservation_1.createReservation)(bay, data, (res) => {
+                                foundStatus = res;
+                                found = true;
+                                callback(foundStatus);
+                            });
                         }
                         break;
                     case 'Motorbike': //can't be electric/valeted
                     case 'ElectricCharging':
                     case 'Valet':
                     case 'Lorry':
-                        //use this bay
-                        console.log(bay);
-                        (0, createReservation_1.createReservation)(bay, data);
-                        found = true;
+                        (0, createReservation_1.createReservation)(bay, data, (res) => {
+                            foundStatus = res;
+                            found = true;
+                            callback(foundStatus);
+                        });
                         break;
                     case 'MotorhomeAndCaravan': //can't be covered/valeted
                     case 'Accessible':
                         if (data.electricChargingRequired == bay.electric) {
-                            //use this bay
-                            console.log(bay);
-                            (0, createReservation_1.createReservation)(bay, data);
-                            found = true;
+                            (0, createReservation_1.createReservation)(bay, data, (res) => {
+                                foundStatus = res;
+                                found = true;
+                                callback(foundStatus);
+                            });
                         }
                         break;
                     default:
-                        (0, createReservation_1.createReservation)(bay, data);
+                        (0, createReservation_1.createReservation)(bay, data, (res) => {
+                            foundStatus = res;
+                            found = true;
+                            callback(foundStatus);
+                        });
                         console.log('Hitting default bay type ' + searchBayType);
-                        found = true;
                         break;
                 }
             }

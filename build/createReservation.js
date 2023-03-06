@@ -7,7 +7,7 @@ const reservation_1 = require("./Classes/reservation");
 const reservedParkingBay_1 = require("./Classes/reservedParkingBay");
 const user_1 = require("./Classes/user");
 const getUser_1 = require("./getUser");
-function createReservation(bay, resReq) {
+function createReservation(bay, resReq, callback) {
     const fs = require('fs');
     const reservationsRaw = fs.readFileSync('../cars-so-many-cars/src/Arrays/reservations.json');
     const reservationsFile = JSON.parse(reservationsRaw);
@@ -138,5 +138,6 @@ function createReservation(bay, resReq) {
     }
     console.log(res.UID + ' reservation UID');
     console.log(res.bayUID + ' reservation bay');
+    callback(res);
 }
 exports.createReservation = createReservation;

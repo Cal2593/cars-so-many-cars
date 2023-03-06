@@ -6,7 +6,11 @@ import { reservation } from './Classes/reservation';
 import { baseParkingBay } from './Classes/baseParkingBay';
 import { createReservation } from './createReservation';
 
-export function baySearch(data: searchableUserReservationRequest) {
+export function baySearch(
+  data: searchableUserReservationRequest, 
+  callback: (foundStatus: reservation) => void
+) {
+  let foundStatus: string | reservation;
   const fs = require('fs');
   const parseISO = require('date-fns/parseISO');
   const isSameDay = require('date-fns/isSameDay');
@@ -70,9 +74,8 @@ export function baySearch(data: searchableUserReservationRequest) {
               data.reservationIntervalDateTime
             )
           ) {
-            console.log(
-              "You can't book this vehicle in at the chosen time as it already has a reservation for the given time."
-            ); //return this to user
+            //foundStatus = "This vehicle already has a reservation for the given date/time"
+            //callback(foundStatus);
             throw new Error(
               "Vehicle can't be in two bays at the same time. This vehicle is booked at the same time in bay " +
                 reservationRecord.bayUID +
@@ -263,34 +266,40 @@ export function baySearch(data: searchableUserReservationRequest) {
         switch (searchBayType) {
           case 'Standard':
             if (data.coveredSpotRequired == bay.covering) {
-              //use this bay
-              console.log(bay);
-              createReservation(bay, data);
-              found = true;
+              createReservation(bay, data, (res: reservation) => {
+                foundStatus = res;
+                found = true;
+                callback(foundStatus);
+              });
             }
             break;
           case 'Motorbike': //can't be electric/valeted
           case 'ElectricCharging':
           case 'Valet':
           case 'Lorry':
-            //use this bay
-            console.log(bay);
-            createReservation(bay, data);
-            found = true;
+            createReservation(bay, data, (res: reservation) => {
+              foundStatus = res;
+              found = true;
+              callback(foundStatus);
+            });
             break;
           case 'MotorhomeAndCaravan': //can't be covered/valeted
           case 'Accessible':
             if (data.electricChargingRequired == bay.electric) {
-              //use this bay
-              console.log(bay);
-              createReservation(bay, data);
-              found = true;
+              createReservation(bay, data, (res: reservation) => {
+                foundStatus = res;
+                found = true;
+                callback(foundStatus);
+              });
             }
             break;
           default:
-            createReservation(bay, data);
+            createReservation(bay, data, (res: reservation) => {
+              foundStatus = res;
+              found = true;
+              callback(foundStatus);
+            });
             console.log('Hitting default bay type ' + searchBayType);
-            found = true;
             break;
         }
       }

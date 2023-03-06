@@ -12,6 +12,11 @@ import { occupiedReservedBaysDBRefresh } from './occupiedReservedBaysDBRefresh';
 import { getUserFromEmail } from './getUserFromEmail';
 import { createUser } from './createUser';
 import { incomingReservation } from './incomingReservation';
+import { baseParkingBay } from './Classes/baseParkingBay';
+import axios from "axios";
+import { reservation } from './Classes/reservation';
+import { decodeReservation } from './decodeReservation';
+import { decodedReservation } from './Classes/decodedReservation';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -33,8 +38,27 @@ app.use(
 
 app.post('/', (req: any ,res: any) => {
   res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
-  const userRes: UserReservationRequest = incomingReservation(req.body);
-  res.send('Received');
+  console.log(req.body);
+  if(req.body.type == "Reservation Request"){
+    const userRes: UserReservationRequest = incomingReservation(req.body);
+    reservationCheck(
+      userRes,
+      (data: searchableUserReservationRequest) => {
+        occupiedReservedBaysDBRefresh();
+        baySearch(
+          data,
+          (foundStatus: reservation) => {
+            decodeReservation(
+              foundStatus,
+              (returnData: decodedReservation) => {
+                res.send(returnData);
+            });
+          });
+      }
+    )
+  }else{
+    res.send('Received');
+  }
 });
 
 app.listen(port, () => {
@@ -86,13 +110,13 @@ if (interaction == 'Data Creation') {
     accRequired,
     SpecificLocationSearch
   );
-  reservationCheck(
-    reservationRequest,
-    (data: searchableUserReservationRequest) => {
-      occupiedReservedBaysDBRefresh();
-      baySearch(data);
-    }
-  );
+  // reservationCheck(
+  //   reservationRequest,
+  //   (data: searchableUserReservationRequest) => {
+  //     occupiedReservedBaysDBRefresh();
+  //     baySearch(data);
+  //   }
+  // );
 } else if (interaction == 'New User') {
   const email: string = "frankjefferson@outlook.com"
   const vehicleReg: string = 'LP10 CXH'; // Diesel Citroen (think this is a van)

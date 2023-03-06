@@ -14,7 +14,8 @@ import { getUser } from './getUser';
 
 export function createReservation(
   bay: baseParkingBay,
-  resReq: searchableUserReservationRequest
+  resReq: searchableUserReservationRequest,
+  callback: (res: reservation) => void
 ) {
   const fs = require('fs');
   const reservationsRaw = fs.readFileSync(
@@ -240,4 +241,5 @@ export function createReservation(
   }
   console.log(res.UID + ' reservation UID');
   console.log(res.bayUID + ' reservation bay');
+  callback(res);
 }
