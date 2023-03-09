@@ -40,6 +40,7 @@ app.post('/', (req, res) => {
         });
     }
     else {
+        console.log(req.body);
         res.send('Received');
     }
 });

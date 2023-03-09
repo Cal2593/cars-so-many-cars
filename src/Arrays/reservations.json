@@ -13144,5 +13144,47 @@
     "_reservationUpdateTS": "2023-03-06T16:37:23.144Z",
     "_discountPercent": 20,
     "_pricePaid": 19.2
+  },
+  {
+    "_UID": 942,
+    "_bayUID": 171,
+    "_userUID": 1,
+    "_vehicle": "WF58YAX",
+    "_reservationInterval": {
+      "start": "2023-04-03T14:00:00.000Z",
+      "end": "2023-04-03T16:00:00.000Z"
+    },
+    "_reservationCreationTS": "2023-03-06T16:40:04.083Z",
+    "_reservationUpdateTS": "2023-03-06T16:40:04.083Z",
+    "_discountPercent": 20,
+    "_pricePaid": 3.2
+  },
+  {
+    "_UID": 943,
+    "_bayUID": 171,
+    "_userUID": 1,
+    "_vehicle": "WF58YAX",
+    "_reservationInterval": {
+      "start": "2023-03-16T12:00:00.000Z",
+      "end": "2023-03-16T17:00:00.000Z"
+    },
+    "_reservationCreationTS": "2023-03-06T16:46:32.701Z",
+    "_reservationUpdateTS": "2023-03-06T16:46:32.701Z",
+    "_discountPercent": 20,
+    "_pricePaid": 8
+  },
+  {
+    "_UID": 944,
+    "_bayUID": 171,
+    "_userUID": 1,
+    "_vehicle": "WN07WHR",
+    "_reservationInterval": {
+      "start": "2023-03-25T06:15:00.000Z",
+      "end": "2023-03-25T20:45:00.000Z"
+    },
+    "_reservationCreationTS": "2023-03-06T16:55:48.563Z",
+    "_reservationUpdateTS": "2023-03-06T16:55:48.563Z",
+    "_discountPercent": 20,
+    "_pricePaid": 70.4
   }
 ]

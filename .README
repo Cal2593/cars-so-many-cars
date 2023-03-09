@@ -7,7 +7,7 @@ npm run lint - checks code
 npm run prettier-format - formats everything
 npm run lint-and-fix - checks code and fixes if it's able to
 
-Shit I'm using
+Things I'm using
 
 - ESLint
 - Node.js

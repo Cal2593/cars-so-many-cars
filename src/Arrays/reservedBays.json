@@ -1,128 +1,11 @@
 [
   {
-    "_UID": 59,
-    "_bayUID": 141,
-    "_reservationUID": 62,
-    "_reservedInterval": {
-      "start": "2023-01-17T08:00:00.000Z",
-      "end": "2023-01-17T17:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 110,
-    "_bayUID": 163,
-    "_reservationUID": 118,
-    "_reservedInterval": {
-      "start": "2023-02-02T12:00:00.000Z",
-      "end": "2023-02-02T20:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 178,
-    "_bayUID": 152,
-    "_reservationUID": 198,
-    "_reservedInterval": {
-      "start": "2023-02-16T13:00:00.000Z",
-      "end": "2023-02-16T15:00:00.000Z"
-    }
-  },
-  {
     "_UID": 229,
     "_bayUID": 140,
     "_reservationUID": 253,
     "_reservedInterval": {
       "start": "2023-03-06T18:00:00.000Z",
       "end": "2023-03-06T19:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 280,
-    "_bayUID": 152,
-    "_reservationUID": 306,
-    "_reservedInterval": {
-      "start": "2023-02-14T11:00:00.000Z",
-      "end": "2023-02-14T12:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 329,
-    "_bayUID": 173,
-    "_reservationUID": 357,
-    "_reservedInterval": {
-      "start": "2023-02-12T10:00:00.000Z",
-      "end": "2023-02-12T17:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 405,
-    "_bayUID": 191,
-    "_reservationUID": 437,
-    "_reservedInterval": {
-      "start": "2023-02-22T15:00:00.000Z",
-      "end": "2023-02-22T18:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 459,
-    "_bayUID": 113,
-    "_reservationUID": 496,
-    "_reservedInterval": {
-      "start": "2023-01-22T08:00:00.000Z",
-      "end": "2023-01-22T10:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 517,
-    "_bayUID": 123,
-    "_reservationUID": 559,
-    "_reservedInterval": {
-      "start": "2023-02-15T15:00:00.000Z",
-      "end": "2023-02-15T17:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 591,
-    "_bayUID": 137,
-    "_reservationUID": 639,
-    "_reservedInterval": {
-      "start": "2023-02-26T06:00:00.000Z",
-      "end": "2023-02-26T16:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 643,
-    "_bayUID": 116,
-    "_reservationUID": 691,
-    "_reservedInterval": {
-      "start": "2023-02-27T16:00:00.000Z",
-      "end": "2023-02-27T18:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 696,
-    "_bayUID": 164,
-    "_reservationUID": 746,
-    "_reservedInterval": {
-      "start": "2023-01-21T13:00:00.000Z",
-      "end": "2023-01-21T15:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 749,
-    "_bayUID": 166,
-    "_reservationUID": 800,
-    "_reservedInterval": {
-      "start": "2023-03-06T14:00:00.000Z",
-      "end": "2023-03-06T16:00:00.000Z"
-    }
-  },
-  {
-    "_UID": 794,
-    "_bayUID": 189,
-    "_reservationUID": 847,
-    "_reservedInterval": {
-      "start": "2023-01-20T08:00:00.000Z",
-      "end": "2023-01-20T16:00:00.000Z"
     }
   },
   {
@@ -177,6 +60,33 @@
     "_reservedInterval": {
       "start": "2023-04-06T05:00:00.000Z",
       "end": "2023-04-06T17:00:00.000Z"
+    }
+  },
+  {
+    "_UID": 881,
+    "_bayUID": 171,
+    "_reservationUID": 942,
+    "_reservedInterval": {
+      "start": "2023-04-03T14:00:00.000Z",
+      "end": "2023-04-03T16:00:00.000Z"
+    }
+  },
+  {
+    "_UID": 882,
+    "_bayUID": 171,
+    "_reservationUID": 943,
+    "_reservedInterval": {
+      "start": "2023-03-16T12:00:00.000Z",
+      "end": "2023-03-16T17:00:00.000Z"
+    }
+  },
+  {
+    "_UID": 883,
+    "_bayUID": 171,
+    "_reservationUID": 944,
+    "_reservedInterval": {
+      "start": "2023-03-25T06:15:00.000Z",
+      "end": "2023-03-25T20:45:00.000Z"
     }
   }
 ]

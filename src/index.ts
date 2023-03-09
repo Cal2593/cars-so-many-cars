@@ -12,8 +12,6 @@ import { occupiedReservedBaysDBRefresh } from './occupiedReservedBaysDBRefresh';
 import { getUserFromEmail } from './getUserFromEmail';
 import { createUser } from './createUser';
 import { incomingReservation } from './incomingReservation';
-import { baseParkingBay } from './Classes/baseParkingBay';
-import axios from "axios";
 import { reservation } from './Classes/reservation';
 import { decodeReservation } from './decodeReservation';
 import { decodedReservation } from './Classes/decodedReservation';
@@ -56,7 +54,7 @@ app.post('/', (req: any ,res: any) => {
           });
       }
     )
-  }else{
+  }else if(req.body.type == "Registration check"){
     res.send('Received');
   }
 });
